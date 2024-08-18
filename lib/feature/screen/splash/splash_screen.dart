@@ -42,7 +42,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     style: TextStyle(
                         color: AppColors.blackColor,
                         fontSize: MediaQuery.sizeOf(context).width / 10,
-                        fontFamily: "Poppions",
+                        fontFamily: "Poppins",
                         fontWeight: FontWeight.bold),
                   ),
                   WidgetSpan(
@@ -63,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         "X",
                         style: TextStyle(
                             fontSize: MediaQuery.sizeOf(context).width / 9,
-                            fontFamily: "Poppions",
+                            fontFamily: "Poppins",
                             color: AppColors.whiteColor,
                             fontWeight: FontWeight.bold),
                       ),
@@ -85,7 +85,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   "from",
                   style: TextStyle(
                       fontSize: MediaQuery.sizeOf(context).width / 30,
-                      fontFamily: "Poppions",
+                      fontFamily: "Poppins",
+                      fontStyle: FontStyle.normal,
                       color: AppColors.blackColor,
                       fontWeight: FontWeight.w300),
                 ),
@@ -105,7 +106,8 @@ class _SplashScreenState extends State<SplashScreen> {
                       "Mirze Muhammet \nKoçak",
                       style: TextStyle(
                           color: AppColors.whiteColor,
-                          fontFamily: "Poppions",
+                          fontFamily: "Poppins",
+                          fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.w500,
                           fontSize: MediaQuery.sizeOf(context).width / 24),
                     ))

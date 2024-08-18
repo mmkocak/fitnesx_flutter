@@ -19,7 +19,7 @@ const fitnesX({ Key? key }) : super(key: key);
           scaffoldBackgroundColor: Colors.white
       ),
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
