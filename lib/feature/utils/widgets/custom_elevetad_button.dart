@@ -1,4 +1,4 @@
-import 'package:fitnesx_flutter/feature/theme/colors.dart';
+import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomElevetadButton extends StatelessWidget {
@@ -10,7 +10,7 @@ class CustomElevetadButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-     height: 60,
+     height: 70,
      width: 400,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(80),

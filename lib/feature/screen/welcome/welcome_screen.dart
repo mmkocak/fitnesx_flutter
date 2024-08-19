@@ -1,4 +1,5 @@
-import 'package:fitnesx_flutter/feature/theme/colors.dart';
+import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_one_page.dart';
+import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
 import 'package:fitnesx_flutter/feature/utils/widgets/custom_elevetad_button.dart';
 import 'package:flutter/material.dart';
 
@@ -58,9 +59,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
           ),
         ),
-        const SizedBox(
-          height: 40,
-        ),
+       
         Positioned(
           bottom: 0,
           left: 0,
@@ -90,7 +89,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
              
-             CustomElevetadButton(onPressed: (){}, text: "Get Started"),
+             CustomElevetadButton(onPressed: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OnboardingOnePage()));
+             }, text: "Get Started"),
             ],
           ),
         )
