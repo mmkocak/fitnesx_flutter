@@ -12,35 +12,33 @@ class CustomElevetadButton extends StatelessWidget {
     return Container(
      height: 60,
      width: 400,
-      child: InkWell(
-        onTap: onPressed,
-        borderRadius: BorderRadius.circular(60),
-        child: Ink(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: <Color>[AppColors.brandColorsOne, AppColors.brandColorTwo],
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-            ),
-            borderRadius: BorderRadius.circular(90),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(80),
+        gradient: LinearGradient(
+          colors: <Color>[AppColors.brandColorsOne, AppColors.brandColorTwo],
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
           ),
-          child: Container(
-            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-            child: Center(
-              child: Text(
-                text,
-                style: TextStyle(
-                  color: AppColors.whiteColor,
-                  fontFamily: "Poppins",
-                  fontWeight: FontWeight.bold,
-                  fontSize: MediaQuery.sizeOf(context).width/20               
-                ),
-              ),
-      
-            ),
-          ),
-        ),
       ),
+      child: ElevatedButton(
+        onPressed: onPressed, 
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(80)
+          )
+        ),
+        child: Text(text,
+        style: TextStyle(
+          fontSize: MediaQuery.sizeOf(context).width/20,
+          fontFamily: "Poppins",
+          color: AppColors.whiteColor,
+          fontWeight: FontWeight.bold,
+        ),
+        ),
+
+        ),
     );
   }
 }
