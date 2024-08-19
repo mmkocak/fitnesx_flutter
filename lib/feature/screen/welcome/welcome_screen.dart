@@ -2,14 +2,14 @@ import 'package:fitnesx_flutter/feature/theme/colors.dart';
 import 'package:fitnesx_flutter/feature/utils/widgets/custom_elevetad_button.dart';
 import 'package:flutter/material.dart';
 
-class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({Key? key}) : super(key: key);
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
-  _OnboardingPageState createState() => _OnboardingPageState();
+  _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _OnboardingPageState extends State<OnboardingPage> {
+class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

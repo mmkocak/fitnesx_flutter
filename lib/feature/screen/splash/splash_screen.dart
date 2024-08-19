@@ -1,6 +1,5 @@
 import 'dart:async';
-
-import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_page.dart';
+import 'package:fitnesx_flutter/feature/screen/welcome/welcome_screen.dart';
 import 'package:fitnesx_flutter/feature/theme/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     void _navigateOnboarding()async {
     await Future.delayed(const Duration(seconds: 5));
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const OnboardingPage()));
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const WelcomeScreen()));
   }
   
   @override
