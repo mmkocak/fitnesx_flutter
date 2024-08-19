@@ -1,4 +1,5 @@
 import 'package:fitnesx_flutter/feature/theme/colors.dart';
+import 'package:fitnesx_flutter/feature/utils/widgets/custom_elevetad_button.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -75,7 +76,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     color: AppColors.gray_1,
                     fontFamily: "Poppins",
                     fontStyle: FontStyle.normal,
-                    fontSize: MediaQuery.sizeOf(context).width / 40),
+                    fontSize: MediaQuery.sizeOf(context).width / 30),
               ), 
             ],
           ),
@@ -88,13 +89,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ElevatedButton(
-                onPressed: (){}, 
-                child: Text("data"),),
+             
+             CustomElevetadButton(onPressed: (){}, text: "Get Started"),
             ],
           ),
         )
-      ]),
+      ],),
     );
   }
 }
