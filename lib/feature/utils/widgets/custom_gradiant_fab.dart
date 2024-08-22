@@ -3,41 +3,27 @@ import 'package:flutter/material.dart';
 
 class CustomGradiantFab extends StatelessWidget {
   final VoidCallback onPressed;
-  final IconData icon;
-  final double borderWidth;
-  final LinearGradient gradient;
-  const CustomGradiantFab(
-      {Key? key,
-      required this.onPressed,
-      required this.icon,
-      required this.borderWidth,
-      required this.gradient})
-      : super(key: key);
+const CustomGradiantFab({ Key? key, required this.onPressed}) : super(key: key);
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Container(
-      width: 70,
       height: 70,
+      width: 70,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        gradient: gradient,
-      ),
-      child: Center(
-        child: Container(
-          width: 70 - borderWidth,
-          height: 70 -borderWidth,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: AppColors.whiteColor,
-          ),
-          child: FloatingActionButton(
-            onPressed: onPressed,
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            child: Icon(icon, color: AppColors.blackColor,),
-            ),
+        gradient: LinearGradient
+        (colors: <Color>[AppColors.brandColorsOne, AppColors.brandColorTwo],
+        begin: Alignment.topRight,
+        end: Alignment.bottomLeft,
         ),
       ),
+      child: FloatingActionButton(
+        child: Icon(Icons.chevron_right, color: Colors.white, size: 40,),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        onPressed: onPressed,
+        ),
     );
   }
 }

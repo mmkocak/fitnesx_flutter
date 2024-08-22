@@ -1,3 +1,4 @@
+import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_one_page.dart';
 import 'package:fitnesx_flutter/feature/screen/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,7 +20,7 @@ const fitnesX({ Key? key }) : super(key: key);
           scaffoldBackgroundColor: Colors.white
       ),
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const OnboardingOnePage(),
     );
   }
 }

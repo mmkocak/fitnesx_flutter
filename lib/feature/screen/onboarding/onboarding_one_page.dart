@@ -20,18 +20,8 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomGradiantFab(
-                onPressed: () {},
-                icon: Icons.back_hand,
-                borderWidth: 8.0,
-                gradient: LinearGradient(
-                  colors: <Color>[
-                    AppColors.brandColorsOne,
-                    AppColors.brandColorTwo
-                  ],
-                  stops:[ 0.25, 0.25,],
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                ))
+              onPressed: (){},
+            ),
           ],
         ),
       ),
