@@ -54,7 +54,7 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
                 padding: const EdgeInsets.only(right: 30),
                 child: CustomGradiantFab(
                     onPressed: () {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const OnboardingTwoPage()));
