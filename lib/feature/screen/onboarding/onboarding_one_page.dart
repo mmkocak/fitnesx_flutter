@@ -25,7 +25,7 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
           ),
           SizedBox(height: MediaQuery.sizeOf(context).height / 11),
           const Padding(
-            padding:  EdgeInsets.only(left: 40, right: 40),
+            padding: EdgeInsets.only(left: 40, right: 40),
             child: Text(
               "Track Your Goal",
               style: TextStyle(
@@ -34,27 +34,37 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          const  Padding(
-            padding:  EdgeInsets.only(left: 40, right: 40, top: 30),
+          const Padding(
+            padding: EdgeInsets.only(left: 40, right: 40, top: 30),
             child: Text(
               "Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals",
-              style: TextStyle(fontFamily: "Poppins", color: AppColors.gray_1, fontStyle: FontStyle.normal),
+              style: TextStyle(
+                  fontFamily: "Poppins",
+                  color: AppColors.gray_1,
+                  fontStyle: FontStyle.normal),
             ),
           ),
-           SizedBox(height: MediaQuery.sizeOf(context).height / 7,),
+          SizedBox(
+            height: MediaQuery.sizeOf(context).height / 7,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-           children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 30),
-              child: CustomGradiantFab(onPressed: (){
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const OnboardingTwoPage()));
-              }, icon: Icons.arrow_back, pageIndex: 1),
-            )
-           ],
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 30),
+                child: CustomGradiantFab(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const OnboardingTwoPage()));
+                    },
+                    icon: Icons.chevron_right,
+                    pageIndex: 1),
+              )
+            ],
           )
         ],
-        
       ),
     );
   }

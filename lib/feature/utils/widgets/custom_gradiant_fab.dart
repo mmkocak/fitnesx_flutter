@@ -20,8 +20,8 @@ class _CustomGradiantFabState extends State<CustomGradiantFab>
   Widget build(BuildContext context) {
           return Container(
             padding: const EdgeInsets.all(4),
-            width: 76,
-            height: 76,
+            width: 82,
+            height: 82,
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 gradient:  LinearGradient(
@@ -38,7 +38,8 @@ class _CustomGradiantFabState extends State<CustomGradiantFab>
                 ),
                 border: Border.all(
                   color: Colors.transparent,
-                  width: 1,
+                  width: 0.1,
+
                 )),
             child: Container(
               height: 66,
@@ -63,7 +64,7 @@ class _CustomGradiantFabState extends State<CustomGradiantFab>
                       ),
                       child: FloatingActionButton(
                         child: Icon(
-                          Icons.chevron_right,
+                          widget.icon,
                           color: Colors.white,
                           size: 40,
                         ),
