@@ -5,7 +5,7 @@ class CustomGradiantFab extends StatefulWidget {
   final VoidCallback onPressed;
   final IconData icon;
   final int pageIndex;
-  const CustomGradiantFab(
+   CustomGradiantFab(
       {Key? key, required this.onPressed, required this.icon, required this.pageIndex})
       : super(key: key);
 
