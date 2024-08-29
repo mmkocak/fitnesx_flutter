@@ -1,4 +1,3 @@
-import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
 import 'package:fitnesx_flutter/feature/utils/widgets/custom_gradiant_fab.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +19,8 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             CustomGradiantFab(
+              pageIndex: 1,
+              icon: Icons.arrow_back_ios,
               onPressed: (){},
             ),
           ],
