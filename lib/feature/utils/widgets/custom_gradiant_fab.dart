@@ -73,6 +73,8 @@ class _CustomGradiantFabState extends State<CustomGradiantFab> {
               backgroundColor: Colors.transparent,
               elevation: 0,
               onPressed: widget.onPressed,
+              highlightElevation: 0,
+              splashColor: Colors.transparent,
             ),
           ),
         ),
