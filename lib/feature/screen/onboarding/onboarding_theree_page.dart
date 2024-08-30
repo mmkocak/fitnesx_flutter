@@ -1,32 +1,31 @@
-import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_theree_page.dart';
 import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
 import 'package:fitnesx_flutter/feature/utils/widgets/custom_gradiant_fab.dart';
 import 'package:flutter/material.dart';
-class OnboardingTwoPage extends StatefulWidget {
-  const OnboardingTwoPage({Key? key}) : super(key: key);
+
+class OnboardingThereePage extends StatefulWidget {
+  const OnboardingThereePage({Key? key}) : super(key: key);
 
   @override
-  _OnboardingTwoPageState createState() => _OnboardingTwoPageState();
+  _OnboardingThereePageState createState() => _OnboardingThereePageState();
 }
 
-class _OnboardingTwoPageState extends State<OnboardingTwoPage> {
-  static const String onborading2img = "assets/images/onboarding2.png";
-   
+class _OnboardingThereePageState extends State<OnboardingThereePage> {
+  static const String onboardin3img = "assets/images/onboarding3.png";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset(
-            onborading2img,
+            onboardin3img,
+             alignment: Alignment.topLeft,
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height / 15),
+          
           const Padding(
-            padding: EdgeInsets.only(right: 40, left: 40, top: 40),
+            padding: EdgeInsets.only(right: 40, left: 40, top: 65),
             child: Text(
-              "Get Burn",
+              "Eat Well",
               style: TextStyle(
                   fontFamily: "Poppins",
                   fontSize: 28,
@@ -36,7 +35,7 @@ class _OnboardingTwoPageState extends State<OnboardingTwoPage> {
           const Padding(
             padding:  EdgeInsets.only(top: 40, left: 40, right: 40),
             child: Text(
-              "Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever",
+              "Let's start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun",
               style: TextStyle(
                 fontFamily: "Poppins",
                 color: AppColors.gray_1,
@@ -57,17 +56,18 @@ class _OnboardingTwoPageState extends State<OnboardingTwoPage> {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (context, animation1, animation2) => const OnboardingThereePage(),
+                          pageBuilder: (context, animation1, animation2) =>
+                              const OnboardingThereePage(),
                           transitionDuration: Duration.zero,
                           reverseTransitionDuration: Duration.zero,
                         ),
                       );
                     },
                     icon: Icons.chevron_right,
-                    pageIndex: 2),
+                    pageIndex: 3),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

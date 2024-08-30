@@ -17,16 +17,20 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image(
-            width: MediaQuery.sizeOf(context).width / 1,
-            height: MediaQuery.sizeOf(context).height / 2,
-            image: const AssetImage(anaResim),
+          Container(
+            child: Image(
+              image: const AssetImage(anaResim),
+              alignment: Alignment.topLeft,
+             
+            height: MediaQuery.of(context).size.height * 0.52,
+            ),
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height / 11),
-          const Padding(
-            padding: EdgeInsets.only(left: 40, right: 40),
-            child: Text(
+          SizedBox(height: MediaQuery.sizeOf(context).height / 15),
+           Padding(
+            padding: EdgeInsets.symmetric(horizontal:  MediaQuery.sizeOf(context).width * 0.1),
+            child: const Text(
               "Track Your Goal",
               style: TextStyle(
                   fontFamily: "Poppins",
@@ -34,9 +38,9 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
                   fontWeight: FontWeight.bold),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 40, right: 40, top: 30),
-            child: Text(
+           Padding(
+            padding: EdgeInsets.symmetric(horizontal: MediaQuery.sizeOf(context).width * 0.1, vertical:  MediaQuery.sizeOf(context).width /20),
+            child: const Text(
               "Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals",
               style: TextStyle(
                   fontFamily: "Poppins",
@@ -45,13 +49,13 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
             ),
           ),
           SizedBox(
-            height: MediaQuery.sizeOf(context).height / 7,
+            height: MediaQuery.sizeOf(context).height / 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 30),
+                padding:  EdgeInsets.symmetric(horizontal: MediaQuery.sizeOf(context).width * 0.1, vertical:  MediaQuery.sizeOf(context).width /20 ),
                 child: CustomGradiantFab(
                     onPressed: () {
                       Navigator.push(
