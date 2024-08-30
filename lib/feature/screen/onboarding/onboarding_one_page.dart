@@ -56,8 +56,11 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
                     onPressed: () {
                       Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const OnboardingTwoPage()));
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation1, animation2) =>const OnboardingTwoPage(),
+                            transitionDuration: Duration.zero,
+                            reverseTransitionDuration: Duration.zero
+                      ));
                     },
                     icon: Icons.chevron_right,
                     pageIndex: 1),
