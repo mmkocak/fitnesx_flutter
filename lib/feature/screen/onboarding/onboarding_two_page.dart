@@ -24,7 +24,7 @@ class _OnboardingTwoPageState extends State<OnboardingTwoPage> {
           ),
           SizedBox(height: MediaQuery.sizeOf(context).height / 16),
           const Padding(
-            padding: const EdgeInsets.only(right: 40, left: 40, top: 40),
+            padding:  EdgeInsets.only(right: 40, left: 40, top: 40),
             child: Text(
               "Get Burn",
               style: TextStyle(
