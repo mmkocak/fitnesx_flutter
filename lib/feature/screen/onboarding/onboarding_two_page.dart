@@ -1,7 +1,4 @@
-import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_theree_page.dart';
-import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
-import 'package:fitnesx_flutter/feature/utils/widgets/custom_gradiant_fab.dart';
-import 'package:flutter/material.dart';
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class OnboardingTwoPage extends StatefulWidget {
   const OnboardingTwoPage({Key? key}) : super(key: key);
@@ -22,12 +19,11 @@ class _OnboardingTwoPageState extends State<OnboardingTwoPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          AspectRatio(
-            aspectRatio: 0.9,
-            child: Image.asset(
-              onborading2img,
-              alignment: Alignment.topLeft,
-            ),
+          Image.asset(
+            width: screenWidth,
+            fit: BoxFit.fitWidth,
+            onborading2img,
+            alignment: Alignment.topLeft,
           ),
           SizedBox(
             height: screenHeight / 12,

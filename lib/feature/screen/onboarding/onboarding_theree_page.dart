@@ -1,6 +1,4 @@
-import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
-import 'package:fitnesx_flutter/feature/utils/widgets/custom_gradiant_fab.dart';
-import 'package:flutter/material.dart';
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class OnboardingThereePage extends StatefulWidget {
   const OnboardingThereePage({Key? key}) : super(key: key);
@@ -13,28 +11,39 @@ class _OnboardingThereePageState extends State<OnboardingThereePage> {
   static const String onboardin3img = "assets/images/onboarding3.png";
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.sizeOf(context).height;
+    double screenWidth = MediaQuery.sizeOf(context).width;
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+       crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(
-            onboardin3img,
-             alignment: Alignment.topLeft,
+          AspectRatio(
+            aspectRatio: 0.9,
+            child: Image.asset(
+              onboardin3img,
+              width: screenWidth,
+               alignment: Alignment.topLeft,
+               fit: BoxFit.fill,
+            ),
           ),
-          
-          const Padding(
-            padding: EdgeInsets.only(right: 40, left: 40, top: 65),
+          SizedBox(height: screenHeight /12,),
+           Padding(
+             padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.1),
             child: Text(
               "Eat Well",
               style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 28,
+                  fontSize: screenWidth * 0.06,
                   fontWeight: FontWeight.bold),
             ),
           ),
-          const Padding(
-            padding:  EdgeInsets.only(top: 40, left: 40, right: 40),
-            child: Text(
+           Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.1,
+                vertical: screenWidth / 20),
+            child: const Text(
               "Let's start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun",
               style: TextStyle(
                 fontFamily: "Poppins",
@@ -44,13 +53,15 @@ class _OnboardingThereePageState extends State<OnboardingThereePage> {
             ),
           ),
           SizedBox(
-            height: MediaQuery.sizeOf(context).height / 15,
+            height: screenHeight / 14,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 30),
+                 padding: EdgeInsets.symmetric(
+                    horizontal: screenWidth * 0.1,
+                    vertical:screenWidth / 20),
                 child: CustomGradiantFab(
                     onPressed: () {
                       Navigator.push(

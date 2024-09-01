@@ -1,8 +1,4 @@
-import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_two_page.dart';
-import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
-import 'package:fitnesx_flutter/feature/utils/widgets/custom_gradiant_fab.dart';
-import 'package:flutter/material.dart';
-
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 class OnboardingOnePage extends StatefulWidget {
   const OnboardingOnePage({Key? key}) : super(key: key);
 
@@ -22,17 +18,16 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-         const AspectRatio(
-            aspectRatio: 0.9,
-            child: Image(
-              image: AssetImage(anaResim),
-              alignment: Alignment.topLeft,
-            ),
-          ),
+         Image(
+           image: AssetImage(anaResim),
+           alignment: Alignment.topLeft,
+           width: screenWidth,
+           fit: BoxFit.fitWidth,
+         ),
           SizedBox(height: screenHeight /12,),
           Padding(
             padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.sizeOf(context).width * 0.1),
+                horizontal: screenWidth * 0.1),
             child:  Text(
               "Track Your Goal",
               style: TextStyle(
@@ -61,8 +56,8 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
             children: [
               Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.sizeOf(context).width * 0.1,
-                    vertical: MediaQuery.sizeOf(context).width / 20),
+                    horizontal: screenWidth * 0.1,
+                    vertical:screenWidth / 20),
                 child: CustomGradiantFab(
                     onPressed: () {
                       Navigator.push(
