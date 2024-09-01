@@ -14,32 +14,37 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
   static const String anaResim = "assets/images/oboarding1.png";
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.sizeOf(context).height;
+    double screenWidth = MediaQuery.sizeOf(context).width;
+
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
+         const AspectRatio(
+            aspectRatio: 0.9,
             child: Image(
-              image: const AssetImage(anaResim),
+              image: AssetImage(anaResim),
               alignment: Alignment.topLeft,
-             
-            height: MediaQuery.of(context).size.height * 0.52,
             ),
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height / 15),
-           Padding(
-            padding: EdgeInsets.symmetric(horizontal:  MediaQuery.sizeOf(context).width * 0.1),
-            child: const Text(
+          SizedBox(height: screenHeight /12,),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.sizeOf(context).width * 0.1),
+            child:  Text(
               "Track Your Goal",
               style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 28,
+                  fontSize: screenWidth * 0.06,
                   fontWeight: FontWeight.bold),
             ),
           ),
-           Padding(
-            padding: EdgeInsets.symmetric(horizontal: MediaQuery.sizeOf(context).width * 0.1, vertical:  MediaQuery.sizeOf(context).width /20),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.1,
+                vertical: screenWidth / 20),
             child: const Text(
               "Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals",
               style: TextStyle(
@@ -49,22 +54,24 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
             ),
           ),
           SizedBox(
-            height: MediaQuery.sizeOf(context).height / 20,
+            height: MediaQuery.sizeOf(context).height / 14,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: MediaQuery.sizeOf(context).width * 0.1, vertical:  MediaQuery.sizeOf(context).width /20 ),
+                padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.sizeOf(context).width * 0.1,
+                    vertical: MediaQuery.sizeOf(context).width / 20),
                 child: CustomGradiantFab(
                     onPressed: () {
                       Navigator.push(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation1, animation2) =>const OnboardingTwoPage(),
-                            transitionDuration: Duration.zero,
-                            reverseTransitionDuration: Duration.zero
-                      ));
+                              pageBuilder: (context, animation1, animation2) =>
+                                  const OnboardingTwoPage(),
+                              transitionDuration: Duration.zero,
+                              reverseTransitionDuration: Duration.zero));
                     },
                     icon: Icons.chevron_right,
                     pageIndex: 1),
