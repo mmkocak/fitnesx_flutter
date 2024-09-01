@@ -1,6 +1,4 @@
-import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_one_page.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 void main(List<String> args) {
   WidgetsFlutterBinding.ensureInitialized();
