@@ -54,7 +54,7 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
             ),
           ),
           SizedBox(
-            height: MediaQuery.sizeOf(context).height / 14,
+            height: screenHeight / 14,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

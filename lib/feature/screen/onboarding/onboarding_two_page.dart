@@ -2,6 +2,7 @@ import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_theree_page
 import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
 import 'package:fitnesx_flutter/feature/utils/widgets/custom_gradiant_fab.dart';
 import 'package:flutter/material.dart';
+
 class OnboardingTwoPage extends StatefulWidget {
   const OnboardingTwoPage({Key? key}) : super(key: key);
 
@@ -11,31 +12,41 @@ class OnboardingTwoPage extends StatefulWidget {
 
 class _OnboardingTwoPageState extends State<OnboardingTwoPage> {
   static const String onborading2img = "assets/images/onboarding2.png";
-   
+
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.sizeOf(context).height;
+    double screenWidth = MediaQuery.sizeOf(context).width;
     return Scaffold(
-      
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(
-            onborading2img,
+          AspectRatio(
+            aspectRatio: 0.9,
+            child: Image.asset(
+              onborading2img,
+              alignment: Alignment.topLeft,
+            ),
           ),
-          SizedBox(height: MediaQuery.sizeOf(context).height / 15),
-          const Padding(
-            padding: EdgeInsets.only(right: 40, left: 40, top: 40),
+          SizedBox(
+            height: screenHeight / 12,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.sizeOf(context).width * 0.1),
             child: Text(
               "Get Burn",
               style: TextStyle(
                   fontFamily: "Poppins",
-                  fontSize: 28,
+                  fontSize: screenWidth * 0.06,
                   fontWeight: FontWeight.bold),
             ),
           ),
-          const Padding(
-            padding:  EdgeInsets.only(top: 40, left: 40, right: 40),
-            child: Text(
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.1, vertical: screenWidth / 20),
+            child: const Text(
               "Let’s keep burning, to achive yours goals, it hurts only temporarily, if you give up now you will be in pain forever",
               style: TextStyle(
                 fontFamily: "Poppins",
@@ -45,19 +56,22 @@ class _OnboardingTwoPageState extends State<OnboardingTwoPage> {
             ),
           ),
           SizedBox(
-            height: MediaQuery.sizeOf(context).height / 15,
+            height: screenHeight / 14,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.only(right: 30),
+                padding: EdgeInsets.symmetric(
+                    horizontal: screenWidth * 0.1,
+                    vertical: screenWidth / 20),
                 child: CustomGradiantFab(
                     onPressed: () {
                       Navigator.push(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (context, animation1, animation2) => const OnboardingThereePage(),
+                          pageBuilder: (context, animation1, animation2) =>
+                              const OnboardingThereePage(),
                           transitionDuration: Duration.zero,
                           reverseTransitionDuration: Duration.zero,
                         ),
