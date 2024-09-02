@@ -1,15 +1,14 @@
-import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_for_page.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
-class OnboardingThereePage extends StatefulWidget {
-  const OnboardingThereePage({Key? key}) : super(key: key);
+class OnboardingForPage extends StatefulWidget {
+  const OnboardingForPage({Key? key}) : super(key: key);
 
   @override
-  _OnboardingThereePageState createState() => _OnboardingThereePageState();
+  _OnboardingForPageState createState() => _OnboardingForPageState();
 }
 
-class _OnboardingThereePageState extends State<OnboardingThereePage> {
-  static const String onboardin3img = "assets/images/onboarding3.png";
+class _OnboardingForPageState extends State<OnboardingForPage> {
+  static const String onboardin3img = "assets/images/onboarding4.png";
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.sizeOf(context).height;
@@ -33,7 +32,7 @@ class _OnboardingThereePageState extends State<OnboardingThereePage> {
              padding: EdgeInsets.symmetric(
                 horizontal: screenWidth * 0.1),
             child: Text(
-              "Eat Well",
+              "Improve Sleep  Quality",
               style: TextStyle(
                   fontFamily: "Poppins",
                   fontSize: screenWidth * 0.06,
@@ -45,7 +44,7 @@ class _OnboardingThereePageState extends State<OnboardingThereePage> {
                 horizontal: screenWidth * 0.1,
                 vertical: screenWidth / 20),
             child: const Text(
-              "Let's start a healthy lifestyle with us, we can determine your diet every day. healthy eating is fun",
+              "Improve the quality of your sleep with us, good quality sleep can bring a good mood in the morning",
               style: TextStyle(
                 fontFamily: "Poppins",
                 color: AppColors.gray_1,
@@ -76,7 +75,7 @@ class _OnboardingThereePageState extends State<OnboardingThereePage> {
                       );
                     },
                     icon: Icons.chevron_right,
-                    pageIndex: 3),
+                    pageIndex: 4),
               ),
             ],
           ),
