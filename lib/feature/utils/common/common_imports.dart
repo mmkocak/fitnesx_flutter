@@ -5,3 +5,5 @@ export 'package:fitnesx_flutter/feature/utils/widgets/custom_gradiant_fab.dart';
 export 'package:flutter/material.dart';
 export 'package:flutter/services.dart';
 export  'package:fitnesx_flutter/feature/screen/onboarding/onboarding_one_page.dart';
+export 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_for_page.dart';
+export 'package:fitnesx_flutter/feature/utils/widgets/custom_elevetad_button.dart';

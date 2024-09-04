@@ -1,3 +1,4 @@
+import 'package:fitnesx_flutter/feature/screen/splash/splash_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 void main(List<String> args) {
@@ -17,7 +18,7 @@ const fitnesX({ Key? key }) : super(key: key);
           scaffoldBackgroundColor: Colors.white
       ),
       debugShowCheckedModeBanner: false,
-      home: const OnboardingOnePage(),
+      home: const SplashScreen(),
     );
   }
 }

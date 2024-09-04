@@ -1,4 +1,3 @@
-import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_for_page.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class OnboardingThereePage extends StatefulWidget {

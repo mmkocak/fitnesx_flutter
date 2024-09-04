@@ -1,7 +1,5 @@
-import 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_one_page.dart';
-import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
-import 'package:fitnesx_flutter/feature/utils/widgets/custom_elevetad_button.dart';
-import 'package:flutter/material.dart';
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
+
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
