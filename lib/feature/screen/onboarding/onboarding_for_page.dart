@@ -68,7 +68,7 @@ class _OnboardingForPageState extends State<OnboardingForPage> {
                         context,
                         PageRouteBuilder(
                           pageBuilder: (context, animation1, animation2) =>
-                              const OnboardingForPage(),
+                              const AccounCreateScreen(),
                           transitionDuration: Duration.zero,
                           reverseTransitionDuration: Duration.zero,
                         ),
