@@ -43,12 +43,12 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                   "Create an Account",
                   style: TextStyle(
                       fontFamily: "Poppins",
-                      fontSize: screenWidth * 0.04,
+                      fontSize: screenWidth * 0.05,
                       fontWeight: FontWeight.bold),
                 ),
               ],
             ),
-            SizedBox(height: screenHeight * 0.02,),
+            SizedBox(height: screenHeight * 0.04,),
             Container(
               width: screenWidth * 0.8,
               child: Form(
