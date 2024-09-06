@@ -1,4 +1,5 @@
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
+import 'package:fitnesx_flutter/feature/utils/widgets/custom_textfield.dart';
 
 class AccounCreateScreen extends StatefulWidget {
   const AccounCreateScreen({super.key});
@@ -47,7 +48,16 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                 ),
               ],
             ),
-            
+            SizedBox(height: screenHeight * 0.02,),
+            Container(
+              width: screenWidth * 0.8,
+              child: Form(
+                  child: Column(
+                    children: [
+                      CustomTextfield(hinText: "First Name",),
+                    ],
+                  )),
+            ),
           ],
         ),
       ),
