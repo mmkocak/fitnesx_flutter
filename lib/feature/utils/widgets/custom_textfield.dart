@@ -2,7 +2,8 @@ import '../common/common_imports.dart';
 
 class CustomTextfield extends StatelessWidget {
   String hinText;
-  CustomTextfield({super.key, required this.hinText});
+  final IconData icons;
+  CustomTextfield({super.key, required this.hinText, required this.icons});
 
   @override
   Widget build(BuildContext context) {
@@ -10,6 +11,7 @@ class CustomTextfield extends StatelessWidget {
     double screenWidth = MediaQuery.sizeOf(context).width;
     return TextFormField(
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(screenWidth * 0.04),
         filled: true,
         fillColor: AppColors.borderColor,
         hintText: hinText,
@@ -19,23 +21,23 @@ class CustomTextfield extends StatelessWidget {
           fontFamily: "Poppins",
           fontStyle: FontStyle.normal,
         ),
-        prefixIcon: Icon(Icons.person_outline,
+        prefixIcon: Icon(icons,
             color: AppColors.gray_1, size: screenWidth * 0.06),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(screenWidth * 0.04),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColors.borderColor,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(screenWidth * 0.04),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColors.borderColor,
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(screenWidth * 0.04),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColors.borderColor,
           ),
         ),
