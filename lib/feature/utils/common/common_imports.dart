@@ -8,3 +8,4 @@ export  'package:fitnesx_flutter/feature/screen/onboarding/onboarding_one_page.d
 export 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_for_page.dart';
 export 'package:fitnesx_flutter/feature/utils/widgets/custom_elevetad_button.dart';
 export 'package:fitnesx_flutter/feature/screen/register/account_create_screen.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
