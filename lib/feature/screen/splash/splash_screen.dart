@@ -1,8 +1,4 @@
-import 'dart:async';
-import 'package:fitnesx_flutter/feature/screen/welcome/welcome_screen.dart';
-import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
-import 'package:flutter/material.dart';
-
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 

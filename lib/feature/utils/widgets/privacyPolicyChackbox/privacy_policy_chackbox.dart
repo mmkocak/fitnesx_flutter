@@ -1,5 +1,4 @@
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fitnesx_flutter/feature/utils/widgets/privacyPolicyChackbox/privacy_policy_cubit.dart';
 
 class PrivacyPolicyChackbox extends StatelessWidget {
   const PrivacyPolicyChackbox({super.key});
@@ -20,7 +19,7 @@ class PrivacyPolicyChackbox extends StatelessWidget {
                   context.read<PrivacyPolicyCubit>().toggleCheckbox();
                 },);
               },
-            )
+            ),
           ],
         ),
       ),

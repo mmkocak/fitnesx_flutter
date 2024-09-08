@@ -1,5 +1,4 @@
-import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
-import 'package:flutter/material.dart';
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class CustomGradiantFab extends StatefulWidget {
   final VoidCallback onPressed;

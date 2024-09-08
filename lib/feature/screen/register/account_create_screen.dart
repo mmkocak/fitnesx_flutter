@@ -1,6 +1,4 @@
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fitnesx_flutter/feature/utils/widgets/custom_textfield.dart';
-import 'package:fitnesx_flutter/feature/utils/widgets/privacyPolicyChackbox/privacy_policy_chackbox.dart';
 
 class AccounCreateScreen extends StatefulWidget {
   const AccounCreateScreen({super.key});
@@ -62,6 +60,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                       CustomTextfield(hinText: "Email", icons: Icons.email_outlined,),
                       SizedBox(height:screenWidth * 0.04 ,),
                       CustomTextfield(hinText: "Password", icons: Icons.lock_outline,),
+                      SizedBox(height:screenWidth * 0.03 ,),
                       PrivacyPolicyChackbox(),
                     ],
                   ),
