@@ -61,8 +61,20 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                       SizedBox(height:screenWidth * 0.04 ,),
                       CustomTextfield(hinText: "Password", icons: Icons.lock_outline,),
                       SizedBox(height:screenWidth * 0.03 ,),
-                      PrivacyPolicyChackbox(),
-                      CustomElevetadButton(onPressed: (){}, text: "text"),
+                      const PrivacyPolicyChackbox(),
+                      SizedBox(height: screenHeight * 0.2,),
+                      CustomElevetadButton(onPressed: (){}, text: "Register"),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(child: Divider(), flex: 2,),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 6.0),
+                            child: Text("Of", textAlign: TextAlign.center,),
+                          ),
+                          Expanded(child: Divider(),flex: 2,)
+                        ],
+                      )
                     ],
                   ),
               ),
