@@ -7,12 +7,14 @@ class CustomElevetadButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.sizeOf(context).width;
+    double screenHeight = MediaQuery.sizeOf(context).height;
     return Container(
-     height: 70,
-     width: 400,
+     height: screenHeight * 0.06,
+     width: screenWidth * 1.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(80),
-        gradient: LinearGradient(
+        gradient: const  LinearGradient(
           colors: <Color>[AppColors.brandColorsOne, AppColors.brandColorTwo],
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,

@@ -62,6 +62,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                       CustomTextfield(hinText: "Password", icons: Icons.lock_outline,),
                       SizedBox(height:screenWidth * 0.03 ,),
                       PrivacyPolicyChackbox(),
+                      CustomElevetadButton(onPressed: (){}, text: "text"),
                     ],
                   ),
               ),
