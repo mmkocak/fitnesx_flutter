@@ -64,7 +64,7 @@ class _OnboardingForPageState extends State<OnboardingForPage> {
                     vertical:screenWidth / 20),
                 child: CustomGradiantFab(
                     onPressed: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         PageRouteBuilder(
                           pageBuilder: (context, animation1, animation2) =>

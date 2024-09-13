@@ -91,12 +91,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     onPressed: () {
                       Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => OnboardingOnePage()));
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation, secondaryAnimation) =>  const OnboardingOnePage(),
+                              transitionDuration: Duration.zero,
+                              reverseTransitionDuration: Duration.zero,
+                          ));
+
                     },
                     text: "Get Started", 
-                    height: screenHeight * 0.06,
-                    width: screenWidth * 0.09,
+                    height: screenHeight * 0.07,
+                    width: screenWidth * 0.9,
                     ),
               ],
             ),

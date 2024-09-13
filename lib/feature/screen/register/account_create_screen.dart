@@ -28,7 +28,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                 Text(
                   "Hey there,",
                   style: TextStyle(
-                      fontFamily: "Poppins", fontSize: screenWidth * 0.03),
+                      fontFamily: "Poppins", fontSize: screenWidth * 0.04),
                 ),
               ],
             ),
@@ -42,7 +42,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                   "Create an Account",
                   style: TextStyle(
                       fontFamily: "Poppins",
-                      fontSize: screenWidth * 0.05,
+                      fontSize: screenWidth * 0.06,
                       fontWeight: FontWeight.bold),
                 ),
               ],
@@ -87,7 +87,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                     SizedBox(
                       height: screenHeight * 0.2,
                     ),
-                    CustomElevetadButton(onPressed: () {}, text: "Register", height: screenHeight * 0.6, width: screenWidth * 0.09,),
+                    CustomElevetadButton(onPressed: () {}, text: "Register", height: screenHeight * 0.07, width: screenWidth * 0.9,),
                     Padding(
                       padding:
                           EdgeInsets.symmetric(vertical: screenHeight * 0.01),
