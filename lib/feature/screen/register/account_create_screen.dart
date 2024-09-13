@@ -47,36 +47,79 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                 ),
               ],
             ),
-            SizedBox(height: screenHeight * 0.04,),
+            SizedBox(
+              height: screenHeight * 0.04,
+            ),
             Container(
               width: screenWidth * 0.8,
               child: Form(
-                  child: Column(
-                    children: [
-                      CustomTextfield(hinText: "First Name", icons: Icons.person_outline_outlined,),
-                      SizedBox(height:screenWidth * 0.04 ,),
-                      CustomTextfield(hinText: "Last Name", icons: Icons.person_outline_outlined,),
-                      SizedBox(height:screenWidth * 0.04 ,),
-                      CustomTextfield(hinText: "Email", icons: Icons.email_outlined,),
-                      SizedBox(height:screenWidth * 0.04 ,),
-                      CustomTextfield(hinText: "Password", icons: Icons.lock_outline,),
-                      SizedBox(height:screenWidth * 0.03 ,),
-                      const PrivacyPolicyChackbox(),
-                      SizedBox(height: screenHeight * 0.2,),
-                      CustomElevetadButton(onPressed: (){}, text: "Register"),
-                      Row(
+                child: Column(
+                  children: [
+                    CustomTextfield(
+                      hinText: "First Name",
+                      icons: Icons.person_outline_outlined,
+                    ),
+                    SizedBox(
+                      height: screenWidth * 0.04,
+                    ),
+                    CustomTextfield(
+                      hinText: "Last Name",
+                      icons: Icons.person_outline_outlined,
+                    ),
+                    SizedBox(
+                      height: screenWidth * 0.04,
+                    ),
+                    CustomTextfield(
+                      hinText: "Email",
+                      icons: Icons.email_outlined,
+                    ),
+                    SizedBox(
+                      height: screenWidth * 0.04,
+                    ),
+                    CustomTextfield(
+                      hinText: "Password",
+                      icons: Icons.lock_outline,
+                    ),
+                    SizedBox(
+                      height: screenWidth * 0.03,
+                    ),
+                    const PrivacyPolicyChackbox(),
+                    SizedBox(
+                      height: screenHeight * 0.2,
+                    ),
+                    CustomElevetadButton(onPressed: () {}, text: "Register", height: screenHeight * 0.6, width: screenWidth * 0.09,),
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: screenHeight * 0.01),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Expanded(child: Divider(), flex: 2,),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 6.0),
-                            child: Text("Of", textAlign: TextAlign.center,),
+                         const Expanded(
+                            child:  Divider(
+                              color: AppColors.gray_3,
+                            ),
+                            flex: 2,
                           ),
-                          Expanded(child: Divider(),flex: 2,)
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: screenWidth * 0.02),
+                            child: const Text(
+                              "Or",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(color: AppColors.blackColor),
+                            ),
+                          ),
+                         const Expanded(
+                            child: Divider(
+                              color: AppColors.gray_3,
+                            ),
+                            flex: 2,
+                          )
                         ],
-                      )
-                    ],
-                  ),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ],

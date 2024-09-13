@@ -2,16 +2,16 @@ import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 class CustomElevetadButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  const CustomElevetadButton({required this.onPressed, required this.text})
+  final double width;
+  final double height;
+  const CustomElevetadButton({required this.onPressed, required this.text, required this.height, required this.width})
       : super();
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.sizeOf(context).width;
-    double screenHeight = MediaQuery.sizeOf(context).height;
     return Container(
-     height: screenHeight * 0.06,
-     width: screenWidth * 1.0,
+     height: height,
+     width: width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(80),
         gradient: const  LinearGradient(
