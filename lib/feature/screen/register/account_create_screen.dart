@@ -12,6 +12,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.sizeOf(context).height;
     double screenWidth = MediaQuery.sizeOf(context).width;
+    final String googleIcon = "assets/images/google.png";
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(
@@ -85,43 +86,89 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                     ),
                     const PrivacyPolicyChackbox(),
                     SizedBox(
-                      height: screenHeight * 0.2,
+                      height: screenHeight * 0.15,
                     ),
-                    CustomElevetadButton(onPressed: () {}, text: "Register", height: screenHeight * 0.07, width: screenWidth * 0.9,),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: screenHeight * 0.01),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                         const Expanded(
-                            child:  Divider(
-                              color: AppColors.gray_3,
-                            ),
-                            flex: 2,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: screenWidth * 0.02),
-                            child: const Text(
-                              "Or",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(color: AppColors.blackColor),
-                            ),
-                          ),
-                         const Expanded(
-                            child: Divider(
-                              color: AppColors.gray_3,
-                            ),
-                            flex: 2,
-                          )
-                        ],
-                      ),
-                    )
                   ],
                 ),
               ),
             ),
+            CustomElevetadButton(
+              onPressed: () {},
+              text: "Register",
+              height: screenHeight * 0.07,
+              width: screenWidth * 0.9,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: screenHeight * 0.01),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Expanded(
+                    child: Divider(
+                      color: AppColors.gray_3,
+                    ),
+                    flex: 2,
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
+                    child: const Text(
+                      "Or",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: AppColors.blackColor),
+                    ),
+                  ),
+                  const Expanded(
+                    child: Divider(
+                      color: AppColors.gray_3,
+                    ),
+                    flex: 2,
+                  )
+                ],
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: AppColors.gray_3,
+                      width: 2,
+                    ),
+                  ),
+                  height: 50,
+                  width: 50,
+                  child: Icon(
+                    Icons.facebook,
+                    color: Colors.blue,
+                    size: 30,
+                  ),
+                ),
+                SizedBox(
+                  width: screenWidth * 0.02,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: AppColors.gray_3,
+                      width: 2,
+                    ),
+                  ),
+                  height: 50,
+                  width: 50,
+                  child: Center(
+                      child: Image.asset(
+                    googleIcon,
+                    width: 25,
+                    height: 25,
+                  )),
+                ),
+              ],
+            )
           ],
         ),
       ),
