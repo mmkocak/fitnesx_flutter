@@ -86,7 +86,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                     ),
                     const PrivacyPolicyChackbox(),
                     SizedBox(
-                      height: screenHeight * 0.15,
+                      height: screenHeight * 0.17,
                     ),
                   ],
                 ),
@@ -131,42 +131,86 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: AppColors.gray_3,
-                      width: 2,
+                GestureDetector(
+                  onTap: (){
+                    print("Google TIklandı");
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                     borderRadius: BorderRadius.circular(14),
+                      border: Border.all(
+                        color: AppColors.gray_3,
+                        width: 2,
+                      ),
                     ),
-                  ),
-                  height: 50,
-                  width: 50,
-                  child: Icon(
-                    Icons.facebook,
-                    color: Colors.blue,
-                    size: 30,
+                    height: 50,
+                    width: 50,
+                    child: Center(
+                        child: Image.asset(
+                      googleIcon,
+                      width: 25,
+                      height: 25,
+                    )),
                   ),
                 ),
                 SizedBox(
                   width: screenWidth * 0.02,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: AppColors.gray_3,
-                      width: 2,
+                GestureDetector(
+                  onTap: () {
+                    print("Face Tıklandı");
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                     borderRadius: BorderRadius.circular(14),
+                      border: Border.all(
+                        color: AppColors.gray_3,
+                        width: 2,
+                      ),
+                    ),
+                    height: 50,
+                    width: 50,
+                    child: const Icon(
+                      Icons.facebook,
+                      color: Colors.blue,
+                      size: 30,
                     ),
                   ),
-                  height: 50,
-                  width: 50,
-                  child: Center(
-                      child: Image.asset(
-                    googleIcon,
-                    width: 25,
-                    height: 25,
-                  )),
                 ),
+                
+                
+              ],
+            ),
+            SizedBox(height: screenHeight * 0.03,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                RichText(text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Already have an account? ",
+                      style: TextStyle(fontSize: screenWidth * 0.04, color: AppColors.blackColor),
+                    ),
+                    WidgetSpan(
+                      alignment: PlaceholderAlignment.baseline,
+                      baseline: TextBaseline.alphabetic,
+                      child: ShaderMask(
+                        shaderCallback: (Rect bounds) {
+                          return const LinearGradient(
+                            colors: <Color>[AppColors.purple_1, AppColors.purple_2], 
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            ).createShader(bounds);
+                        },
+                        child: Text(
+                          "Login",
+                          style: TextStyle(fontSize: screenWidth * 0.04, fontWeight: FontWeight.bold, color: Colors.white)
+                        ),
+                      ),
+                    ),
+                  ]
+                ))
               ],
             )
           ],
