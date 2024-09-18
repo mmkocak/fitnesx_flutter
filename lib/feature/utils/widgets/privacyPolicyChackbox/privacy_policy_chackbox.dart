@@ -6,8 +6,6 @@ class PrivacyPolicyChackbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.sizeOf(context).width;
-    double screenHeight = MediaQuery.sizeOf(context).height;
-    bool isChecked = false;
     return BlocProvider(
       create: (context) => PrivacyPolicyCubit(),
       child: Padding(

@@ -7,7 +7,6 @@ class CustomTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.sizeOf(context).height;
     double screenWidth = MediaQuery.sizeOf(context).width;
     return TextFormField(
       decoration: InputDecoration(

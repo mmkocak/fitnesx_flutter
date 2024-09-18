@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "5961971449",
+    "project_id": "fitnestx-f88c2",
+    "storage_bucket": "fitnestx-f88c2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5961971449:android:2a97fb4cbebfdaf97c5428",
+        "android_client_info": {
+          "package_name": "com.fitnesx_flutter.fitnesx_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_t4eYV3qG2lyo1est1_YqxLLtE3Quaqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
