@@ -5,10 +5,14 @@ import 'package:fitnesx_flutter/firebase_options.dart';
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
-  runApp(const fitnesX());
+  SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+    ],
+  );
+  runApp(
+    const fitnesX(),
+  );
 }
 
 class fitnesX extends StatelessWidget {
@@ -18,7 +22,9 @@ class fitnesX extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => PrivacyPolicyCubit()),
+        BlocProvider(
+          create: (context) => PrivacyPolicyCubit(),
+        ),
       ],
       child: MaterialApp(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),
