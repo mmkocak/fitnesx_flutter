@@ -19,7 +19,7 @@ class _OnboardingOnePageState extends State<OnboardingOnePage> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
          Image(
-           image: AssetImage(anaResim),
+           image: const AssetImage(anaResim),
            alignment: Alignment.topLeft,
            width: screenWidth,
            fit: BoxFit.fitWidth,

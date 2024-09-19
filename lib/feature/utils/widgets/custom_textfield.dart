@@ -1,9 +1,9 @@
 import '../common/common_imports.dart';
-
 class CustomTextfield extends StatelessWidget {
-  String hinText;
+  final String hinText;
   final IconData icons;
-  CustomTextfield({super.key, required this.hinText, required this.icons});
+
+ const CustomTextfield({super.key, required this.hinText, required this.icons});
 
   @override
   Widget build(BuildContext context) {
