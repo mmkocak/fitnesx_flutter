@@ -38,4 +38,12 @@ export  'package:fitnesx_flutter/feature/utils/widgets/privacyPolicyChackbox/pri
 export 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
 //************************************************************************************* */
 
+//Auth
+export 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+//************************************************************************************* */
+
+//Firebase
+export 'package:firebase_auth/firebase_auth.dart';
+export 'package:firebase_core/firebase_core.dart';
+//************************************************************************************* */
 

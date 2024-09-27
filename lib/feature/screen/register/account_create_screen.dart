@@ -1,3 +1,4 @@
+import 'package:fitnesx_flutter/core/firebase/auth/facebook_auth.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class AccounCreateScreen extends StatefulWidget {
@@ -42,7 +43,6 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                 children: [
                   Text(
                     "Create an Account",
-                    
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: screenWidth * 0.06,
@@ -58,14 +58,14 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                 child: Form(
                   child: Column(
                     children: [
-                     const CustomTextfield(
+                      const CustomTextfield(
                         hinText: "First Name",
                         icons: Icons.person_outline_outlined,
                       ),
                       SizedBox(
                         height: screenWidth * 0.04,
                       ),
-                     const CustomTextfield(
+                      const CustomTextfield(
                         hinText: "Last Name",
                         icons: Icons.person_outline_outlined,
                       ),
@@ -79,7 +79,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                       SizedBox(
                         height: screenWidth * 0.04,
                       ),
-                     const CustomTextfield(
+                      const CustomTextfield(
                         hinText: "Password",
                         icons: Icons.lock_outline,
                       ),
@@ -105,7 +105,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                     const Expanded(
+                    const Expanded(
                       child: Divider(
                         color: AppColors.gray_3,
                       ),
@@ -134,12 +134,12 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       print("Google TIklandı");
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                       borderRadius: BorderRadius.circular(14),
+                        borderRadius: BorderRadius.circular(14),
                         border: Border.all(
                           color: AppColors.gray_3,
                           width: 2,
@@ -159,12 +159,14 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                     width: screenWidth * 0.04,
                   ),
                   GestureDetector(
+        
                     onTap: () {
                       print("Face Tıklandı");
+                      signInWithFacebook();
                     },
                     child: Container(
                       decoration: BoxDecoration(
-                       borderRadius: BorderRadius.circular(14),
+                        borderRadius: BorderRadius.circular(14),
                         border: Border.all(
                           color: AppColors.gray_3,
                           width: 2,
@@ -179,40 +181,45 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                       ),
                     ),
                   ),
-                  
-                  
                 ],
               ),
-              SizedBox(height: screenHeight * 0.03,),
+              SizedBox(
+                height: screenHeight * 0.03,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  RichText(text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "Already have an account? ",
-                        style: TextStyle(fontSize: screenWidth * 0.04, color: AppColors.blackColor),
+                  RichText(
+                      text: TextSpan(children: [
+                    TextSpan(
+                      text: "Already have an account? ",
+                      style: TextStyle(
+                          fontSize: screenWidth * 0.04,
+                          color: AppColors.blackColor),
+                    ),
+                    WidgetSpan(
+                      alignment: PlaceholderAlignment.baseline,
+                      baseline: TextBaseline.alphabetic,
+                      child: ShaderMask(
+                        shaderCallback: (Rect bounds) {
+                          return const LinearGradient(
+                            colors: <Color>[
+                              AppColors.purple_1,
+                              AppColors.purple_2
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ).createShader(bounds);
+                        },
+                        child: Text("Login",
+                            style: TextStyle(
+                                fontSize: screenWidth * 0.04,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white)),
                       ),
-                      WidgetSpan(
-                        alignment: PlaceholderAlignment.baseline,
-                        baseline: TextBaseline.alphabetic,
-                        child: ShaderMask(
-                          shaderCallback: (Rect bounds) {
-                            return const LinearGradient(
-                              colors: <Color>[AppColors.purple_1, AppColors.purple_2], 
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              ).createShader(bounds);
-                          },
-                          child: Text(
-                            "Login",
-                            style: TextStyle(fontSize: screenWidth * 0.04, fontWeight: FontWeight.bold, color: Colors.white)
-                          ),
-                        ),
-                      ),
-                    ]
-                  ))
+                    ),
+                  ]))
                 ],
               )
             ],
