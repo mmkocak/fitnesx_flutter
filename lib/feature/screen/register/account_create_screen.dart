@@ -1,4 +1,4 @@
-import 'package:fitnesx_flutter/core/firebase/auth/facebook_auth.dart';
+
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class AccounCreateScreen extends StatefulWidget {
@@ -136,6 +136,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                   GestureDetector(
                     onTap: () {
                       print("Google TIklandı");
+                      signInWithGoogle();
                     },
                     child: Container(
                       decoration: BoxDecoration(

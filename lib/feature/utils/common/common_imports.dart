@@ -40,6 +40,9 @@ export 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
 
 //Auth
 export 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+export 'package:google_sign_in/google_sign_in.dart';
+export 'package:fitnesx_flutter/core/firebase/auth/facebook_auth.dart';
+export 'package:fitnesx_flutter/core/firebase/auth/google_auth.dart';
 //************************************************************************************* */
 
 //Firebase

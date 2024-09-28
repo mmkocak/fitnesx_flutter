@@ -12,7 +12,20 @@
           "package_name": "com.fitnesx_flutter.fitnesx_flutter"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "5961971449-7isj0rgvenmej8d8h1c7oiqegtnuvap6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fitnesx_flutter.fitnesx_flutter",
+            "certificate_hash": "4dd48cc52b42d6d6225f53d5ca59db28ab7ce50a"
+          }
+        },
+        {
+          "client_id": "5961971449-tlsnvnsank5avukd71dorocvek1g18l5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD_t4eYV3qG2lyo1est1_YqxLLtE3Quaqs"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5961971449-tlsnvnsank5avukd71dorocvek1g18l5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "5961971449-98640j6f5ef8d6n42mveo876gd6flm2b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fitnesxflutter.fitnesxFlutter"
+              }
+            }
+          ]
         }
       }
     }
