@@ -135,31 +135,107 @@ class ProfileCompletionPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: AppColors.borderColor,
                             borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: AppColors.gray_1),
+                            border: Border.all(color: AppColors.borderColor),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                               const Icon(
+                              const Icon(
                                 Icons.today_outlined,
                                 color: AppColors.gray_1,
-                                                             ),
-                                                             SizedBox(width: screenWidth * 0.03,),
-                                Expanded(
-                                  child: Text(
-                                    selectedDate == DateTime.now()?
-                                  "Date Of Brith":
-                                  "${selectedDate.toLocal()}".split(' ')[0],
+                              ),
+                              SizedBox(
+                                width: screenWidth * 0.03,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  selectedDate == DateTime.now()
+                                      ? "Date Of Brith"
+                                      : "${selectedDate.toLocal()}"
+                                          .split(' ')[0],
                                   style: TextStyle(
                                     color: AppColors.gray_2,
                                     fontFamily: "Poppins",
                                     fontSize: screenWidth * 0.03,
                                   ),
-                                                                ),
                                 ),
-                             
-                          ],),
+                              ),
+                            ],
+                          ),
                         ),
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.03,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: screenWidth * 0.7,
+                            child: TextFormField(
+                              decoration: InputDecoration(
+                                  contentPadding:
+                                      EdgeInsets.all(screenWidth * 0.04),
+                                  filled: true,
+                                  fillColor: AppColors.borderColor,
+                                  hintText: "Your Weight",
+                                  hintStyle: TextStyle(
+                                    color: AppColors.gray_2,
+                                    fontSize: screenWidth * 0.03,
+                                    fontFamily: "Poppins",
+                                    fontStyle: FontStyle.normal,
+                                  ),
+                                  prefixIcon:
+                                      const Icon(Icons.width_wide_outlined),
+                                  border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          screenWidth * 0.04),
+                                      borderSide: BorderSide(
+                                        color: AppColors.borderColor,
+                                      )),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(
+                                        screenWidth * 0.04),
+                                    borderSide: BorderSide(
+                                        color: AppColors.borderColor),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(
+                                          screenWidth * 0.04),
+                                      borderSide: BorderSide(
+                                        color: AppColors.borderColor,
+                                      ))),
+                            ),
+                          ),
+                          SizedBox(
+                            width: screenWidth * 0.05,
+                          ),
+                          Expanded(
+                            child: Container(
+                              width: screenWidth * 0.01,
+                              height: screenHeight * 0.06,
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                    colors: <Color>[
+                                      AppColors.purple_2,
+                                      AppColors.purple_1,
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight),
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(14),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "KG",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: screenWidth * 0.04, fontFamily: "Poppins", fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ],
                   ),
