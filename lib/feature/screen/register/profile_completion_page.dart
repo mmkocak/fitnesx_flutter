@@ -1,5 +1,7 @@
 import 'package:fitnesx_flutter/feature/utils/bloc/gender_bloc.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
+import 'package:fitnesx_flutter/feature/utils/widgets/custom_complate_profile_textfield.dart';
+import 'package:fitnesx_flutter/feature/utils/widgets/custom_linear_purple_container.dart';
 import 'package:flutter/cupertino.dart';
 
 class ProfileCompletionPage extends StatelessWidget {
@@ -172,69 +174,32 @@ class ProfileCompletionPage extends StatelessWidget {
                         children: [
                           Container(
                             width: screenWidth * 0.7,
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                  contentPadding:
-                                      EdgeInsets.all(screenWidth * 0.04),
-                                  filled: true,
-                                  fillColor: AppColors.borderColor,
-                                  hintText: "Your Weight",
-                                  hintStyle: TextStyle(
-                                    color: AppColors.gray_2,
-                                    fontSize: screenWidth * 0.03,
-                                    fontFamily: "Poppins",
-                                    fontStyle: FontStyle.normal,
-                                  ),
-                                  prefixIcon:
-                                      const Icon(Icons.width_wide_outlined),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          screenWidth * 0.04),
-                                      borderSide: BorderSide(
-                                        color: AppColors.borderColor,
-                                      )),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        screenWidth * 0.04),
-                                    borderSide: BorderSide(
-                                        color: AppColors.borderColor),
-                                  ),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(
-                                          screenWidth * 0.04),
-                                      borderSide: BorderSide(
-                                        color: AppColors.borderColor,
-                                      ))),
-                            ),
+                            child: CustomComplateProfileTextField(  hinText: "Your Weight", screenWidth: screenWidth),
                           ),
                           SizedBox(
                             width: screenWidth * 0.05,
                           ),
                           Expanded(
-                            child: Container(
-                              width: screenWidth * 0.01,
-                              height: screenHeight * 0.06,
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    colors: <Color>[
-                                      AppColors.purple_2,
-                                      AppColors.purple_1,
-                                    ],
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight),
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(14),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  "KG",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: screenWidth * 0.04, fontFamily: "Poppins", fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
-                          )
+                            child: CustomLinearPurpleContainer( text: "KG",  screenWidth: screenWidth, screenHeight: screenHeight),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: screenHeight * 0.03,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: screenWidth * 0.7,
+                            child: CustomComplateProfileTextField(  hinText: "Your Height", screenWidth: screenWidth),
+                          ),
+                          SizedBox(
+                            width: screenWidth * 0.05,
+                          ),
+                          Expanded(
+                            child: CustomLinearPurpleContainer( text: "CM", screenWidth: screenWidth, screenHeight: screenHeight),
+                          ),
                         ],
                       ),
                     ],
@@ -248,3 +213,7 @@ class ProfileCompletionPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
