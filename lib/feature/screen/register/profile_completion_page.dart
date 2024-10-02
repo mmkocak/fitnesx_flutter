@@ -140,18 +140,23 @@ class ProfileCompletionPage extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                               Icon(
+                               const Icon(
                                 Icons.today_outlined,
                                 color: AppColors.gray_1,
-                              ),
-                                Text(
-                                "Date Of Brith ${selectedDate.toLocal()}".split(' ')[0],
-                                style: TextStyle(
-                                  color: AppColors.gray_2,
-                                  fontFamily: "Poppins",
-                                  fontSize: screenWidth * 0.03,
+                                                             ),
+                                                             SizedBox(width: screenWidth * 0.03,),
+                                Expanded(
+                                  child: Text(
+                                    selectedDate == DateTime.now()?
+                                  "Date Of Brith":
+                                  "${selectedDate.toLocal()}".split(' ')[0],
+                                  style: TextStyle(
+                                    color: AppColors.gray_2,
+                                    fontFamily: "Poppins",
+                                    fontSize: screenWidth * 0.03,
+                                  ),
+                                                                ),
                                 ),
-                              ),
                              
                           ],),
                         ),
