@@ -21,5 +21,8 @@ class Fitnestx {
   static const _kFontFam = 'Fitnestx';
   static const String? _kFontPkg = null;
 
-  static const IconData user_2 = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData user_2Bold = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData user_2 = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData calendars = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  
 }

@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/date_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/profile_completion_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
@@ -29,6 +30,9 @@ class fitnesX extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => GenderCubit(),
+        ),
+         BlocProvider(
+          create: (context) => DateCubit(),
         ),
       ],
       child: MaterialApp(
