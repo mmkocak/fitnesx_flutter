@@ -1,6 +1,8 @@
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/date_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/mixin/date_mixin.dart';
+import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/custom_containerpcs.dart';
+import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/custom_textformfield.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/fitnestx_icons.dart';
 
@@ -46,117 +48,177 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
             SizedBox(
               height: screenHeight * 0.01,
             ),
-            Form(
-              child: Column(
-                children: [
-                  BlocBuilder<GenderCubit, String?>(
-                    builder: (context, state) {
-                      return Container(
-                        width: screenWidth * 0.85,
-                        child: DropdownButtonFormField(
-                          dropdownColor: AppColors.borderColor,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Fitnestx.user_2,
-                              color: AppColors.gray_1,
-                              size: screenWidth * 0.06,
-                            ),
-                            hintText: null,
-                            fillColor: AppColors.borderColor,
-                            filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(
-                                color: AppColors.borderColor,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
+              child: Form(
+                child: Column(
+                  children: [
+                    BlocBuilder<GenderCubit, String?>(
+                      builder: (context, state) {
+                        return Container(
+                          width: screenWidth * 0.85,
+                          child: DropdownButtonFormField(
+                            dropdownColor: AppColors.borderColor,
+                            decoration: InputDecoration(
+                              prefixIcon: Icon(
+                                Fitnestx.user_2,
+                                color: AppColors.gray_1,
+                                size: screenWidth * 0.06,
                               ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(
-                                color: AppColors.borderColor,
-                              ),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
-                              borderSide: const BorderSide(
-                                color: AppColors.borderColor,
-                              ),
-                            ),
-                          ),
-                          value: context.watch<GenderCubit>().state,
-                          items: ['Kadın ', 'Erkek']
-                              .map((String gender) => DropdownMenuItem(
-                                    child: Text(
-                                      gender,
-                                      style: TextStyle(fontFamily: "Poppins"),
-                                    ),
-                                    value: gender,
-                                  ))
-                              .toList(),
-                          onChanged: (String? gender) {
-                            context.read<GenderCubit>().selectGender(gender!);
-                          },
-                          hint: const Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Choose Gender",
-                              style: TextStyle(
-                                  color: AppColors.gray_1,
-                                  fontFamily: "Poppins"),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.03,
-                  ),
-                  GestureDetector(
-                    onTap: () => selectDate(context),
-                    child: Container(
-                      height: screenHeight * 0.05,
-                      width: screenWidth * 0.85,
-                      decoration: BoxDecoration(
-                        color: AppColors.borderColor,
-                        border: Border.all(color: AppColors.borderColor),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Row(
-                        children: [
-                          SizedBox(width: screenWidth * 0.02),
-                          Icon(
-                            Fitnestx.calendars,
-                            color: AppColors.gray_1,
-                            size: screenWidth * 0.07,
-                          ),
-                          SizedBox(
-                            width: screenWidth * 0.03,
-                          ),
-                          BlocBuilder<DateCubit, DateTime?>(
-                            builder: (context, selectedDate) {
-                              return Expanded(
-                                child: Text(
-                                  selectedDate == null
-                                      ? "Date of brith"
-                                      : "${selectedDate.toLocal()}"
-                                          .split(' ')[0],
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: selectedDate == null
-                                          ? AppColors.gray_1
-                                          : AppColors.blackColor),
+                              hintText: null,
+                              fillColor: AppColors.borderColor,
+                              filled: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: const BorderSide(
+                                  color: AppColors.borderColor,
                                 ),
-                              );
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: const BorderSide(
+                                  color: AppColors.borderColor,
+                                ),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20),
+                                borderSide: const BorderSide(
+                                  color: AppColors.borderColor,
+                                ),
+                              ),
+                            ),
+                            value: context.watch<GenderCubit>().state,
+                            items: ['Kadın ', 'Erkek']
+                                .map((String gender) => DropdownMenuItem(
+                                      child: Text(
+                                        gender,
+                                        style: TextStyle(fontFamily: "Poppins"),
+                                      ),
+                                      value: gender,
+                                    ))
+                                .toList(),
+                            onChanged: (String? gender) {
+                              context.read<GenderCubit>().selectGender(gender!);
                             },
-                          )
-                        ],
+                            hint: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "Choose Gender",
+                                style: TextStyle(
+                                    color: AppColors.gray_1,
+                                    fontFamily: "Poppins",
+                                    fontSize: screenWidth * 0.03),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    SizedBox(
+                      height: screenHeight * 0.03,
+                    ),
+                    GestureDetector(
+                      onTap: () => selectDate(context),
+                      child: Container(
+                        height: screenHeight * 0.05,
+                        width: screenWidth * 0.85,
+                        decoration: BoxDecoration(
+                          color: AppColors.borderColor,
+                          border: Border.all(color: AppColors.borderColor),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          children: [
+                            SizedBox(width: screenWidth * 0.02),
+                            Icon(
+                              Fitnestx.calendars,
+                              color: AppColors.gray_1,
+                              size: screenWidth * 0.07,
+                            ),
+                            SizedBox(
+                              width: screenWidth * 0.03,
+                            ),
+                            BlocBuilder<DateCubit, DateTime?>(
+                              builder: (context, selectedDate) {
+                                return Expanded(
+                                  child: Text(
+                                    selectedDate == null
+                                        ? "Date of brith"
+                                        : "${selectedDate.toLocal()}"
+                                            .split(' ')[0],
+                                    style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        color: selectedDate == null
+                                            ? AppColors.gray_1
+                                            : AppColors.blackColor,
+                                        fontSize: screenWidth * 0.03),
+                                  ),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      height: screenHeight * 0.03,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                            flex: 8,
+                            child: CustomTextformfield(
+                              size: screenWidth * 0.03,
+                              hinText: "Your Weight",
+                              icon: Icon(Fitnestx.weightScale_1),
+                            )),
+                        SizedBox(
+                          width: screenWidth * 0.05,
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: CustomContainerpcs(
+                            fontSize: screenWidth * 0.05,
+                            height: screenHeight * 0.06,
+                            width: screenWidth * 0.04,
+                            text: "KG",
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: screenHeight * 0.03,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 8,
+                          child: CustomTextformfield(
+                            size: screenWidth * 0.03,
+                            hinText: "Your Height",
+                            icon: Icon(Fitnestx.swaps),
+                          ),
+                        ),
+                        SizedBox(
+                          width: screenWidth * 0.05,
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: CustomContainerpcs(
+                            fontSize: screenWidth * 0.05,
+                            height: screenHeight * 0.06,
+                            width: screenWidth * 0.04,
+                            text: "CM",
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
+            SizedBox(height: screenHeight * 0.05,),
+            CustomElevetadButton(onPressed: (){}, text: "NEXT", height: screenHeight * 0.07, width: screenWidth * 0.9)
           ],
         ),
       ),
