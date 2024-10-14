@@ -57,7 +57,8 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
                     children: [
                       BlocBuilder<GenderCubit, String?>(
                         builder: (context, state) {
-                          return DropdownDontainerWidget(screenWidth: screenWidth);
+                          return DropdownDontainerWidget(
+                              screenWidth: screenWidth);
                         },
                       ),
                       SizedBox(
@@ -65,7 +66,9 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
                       ),
                       GestureDetector(
                         onTap: () => selectDate(context),
-                        child: DateContainerWidget(screenHeight: screenHeight, screenWidth: screenWidth),
+                        child: DateContainerWidget(
+                            screenHeight: screenHeight,
+                            screenWidth: screenWidth),
                       ),
                       SizedBox(
                         height: screenHeight * 0.03,
@@ -124,8 +127,14 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
                   ),
                 ),
               ),
-              SizedBox(height: screenHeight * 0.05,),
-              CustomElevetadButton(onPressed: (){}, text: "NEXT", height: screenHeight * 0.07, width: screenWidth * 0.9)
+              SizedBox(
+                height: screenHeight * 0.05,
+              ),
+              CustomElevetadButton(
+                  onPressed: () {},
+                  text: "NEXT",
+                  height: screenHeight * 0.07,
+                  width: screenWidth * 0.9)
             ],
           ),
         ),
@@ -133,6 +142,3 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
     );
   }
 }
-
-
-
