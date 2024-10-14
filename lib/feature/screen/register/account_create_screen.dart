@@ -1,4 +1,6 @@
 
+import 'package:fitnesx_flutter/core/bloc/authentication_bloc.dart';
+import 'package:fitnesx_flutter/core/bloc/authentication_event.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class AccounCreateScreen extends StatefulWidget {
@@ -8,7 +10,18 @@ class AccounCreateScreen extends StatefulWidget {
   State<AccounCreateScreen> createState() => _AccounCreateScreenState();
 }
 
+
+
 class _AccounCreateScreenState extends State<AccounCreateScreen> {
+  // Google SignIn Function
+  Future<void> SignInWithGoogle() async{
+  context.read<AuthenticationBloc>().add(GoogleSignInRequested());
+}
+
+// Facebook SignIn Function
+Future<void> signInWithFacebook() async{
+  context.read<AuthenticationBloc>().add(FacebookSignInRequested());
+}
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.sizeOf(context).height;
