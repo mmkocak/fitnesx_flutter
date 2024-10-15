@@ -19,7 +19,7 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.02, vertical: screenHeight * 0.02),
+              horizontal: screenWidth * 0.02),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -127,14 +127,16 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
                   ),
                 ),
               ),
-              SizedBox(
-                height: screenHeight * 0.05,
+              
+              Padding(
+                padding:  EdgeInsets.symmetric(vertical: screenHeight * 0.03),
+                child: CustomElevetadButton(
+                    onPressed: () {},
+                    text: "NEXT",
+                    height: screenHeight * 0.07,
+                    width: screenWidth * 0.9),
               ),
-              CustomElevetadButton(
-                  onPressed: () {},
-                  text: "NEXT",
-                  height: screenHeight * 0.07,
-                  width: screenWidth * 0.9)
+             
             ],
           ),
         ),
