@@ -16,7 +16,7 @@ export 'package:fitnesx_flutter/feature/screen/onboarding/onboarding_for_page.da
 //************************************************************************************* */
 
 //Register and Login Pages
-export 'package:fitnesx_flutter/feature/screen/register/account_create_screen.dart';
+export 'package:fitnesx_flutter/feature/screen/register/account_create_page/account_create_screen.dart';
 //************************************************************************************* */
 
 // Splash Screens
@@ -41,8 +41,7 @@ export 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
 //Auth
 export 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 export 'package:google_sign_in/google_sign_in.dart';
-export 'package:fitnesx_flutter/core/firebase/auth/facebook_auth.dart';
-export 'package:fitnesx_flutter/core/firebase/auth/google_auth.dart';
+
 //************************************************************************************* */
 
 //Firebase
