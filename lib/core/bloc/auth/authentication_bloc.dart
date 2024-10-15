@@ -1,5 +1,5 @@
-import 'package:fitnesx_flutter/core/bloc/authentication_event.dart';
-import 'package:fitnesx_flutter/core/bloc/authentication_state.dart';
+import 'package:fitnesx_flutter/core/bloc/auth/authentication_event.dart';
+import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {

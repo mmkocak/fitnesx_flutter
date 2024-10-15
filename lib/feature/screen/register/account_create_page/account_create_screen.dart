@@ -1,6 +1,6 @@
-import 'package:fitnesx_flutter/core/bloc/authentication_bloc.dart';
-import 'package:fitnesx_flutter/core/bloc/authentication_event.dart';
-import 'package:fitnesx_flutter/core/bloc/authentication_state.dart';
+import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
+import 'package:fitnesx_flutter/core/bloc/auth/authentication_event.dart';
+import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
 import 'package:fitnesx_flutter/feature/screen/register/account_create_page/extension/handle_authentication_state.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 

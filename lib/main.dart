@@ -1,6 +1,7 @@
-import 'package:fitnesx_flutter/core/bloc/authentication_bloc.dart';
+import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/date_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
+import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/profile_completion_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/firebase_options.dart';
 
@@ -40,7 +41,7 @@ class fitnesX extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,
-        home: const AccounCreateScreen(),
+        home: const ProfileCompletionScreen(),
       ),
     );
   }
