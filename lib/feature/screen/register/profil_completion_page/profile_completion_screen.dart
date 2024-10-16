@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/date_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
+import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/extension/user_register_extension.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/mixin/date_mixin.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/custom_containerpcs.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/custom_textformfield.dart';
@@ -136,7 +137,7 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
                 padding: EdgeInsets.symmetric(vertical: screenHeight * 0.03),
                 child: CustomElevetadButton(
                     onPressed: () {
-                      _saveProfileData(context);
+                      context.SaveProfileData(weight: _weightController.text, height: _heightController.text);
                     },
                     text: "NEXT",
                     height: screenHeight * 0.07,
@@ -149,30 +150,4 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
     );
   }
 
-  Future<void> _saveProfileData(BuildContext context) async {
-    final String weight = _weightController.text;
-    final String height = _heightController.text;
-    final String? gender = context.read<GenderCubit>().state;
-    final DateTime? dob = context.read<DateCubit>().state;
-    if (weight.isEmpty || height.isEmpty || gender == null || dob == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Please complete all fields")),
-      );
-      return;
-    }
-    try {
-      await FirebaseFirestore.instance.collection('users').add({
-        'weight': weight,
-        'height': height,
-        'gender': gender,
-        'date_of_brith': dob.toIso8601String(),
-      });
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Profil saved data succesfully!")),
-      );
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text("Failed to save profile data ${e} ")));
-    }
-  }
 }
