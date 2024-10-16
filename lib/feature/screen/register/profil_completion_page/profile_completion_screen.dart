@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/date_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/mixin/date_mixin.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/custom_containerpcs.dart';
@@ -8,7 +10,9 @@ import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/fitnestx_icons.dart';
 
 class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
-  const ProfileCompletionScreen({Key? key}) : super(key: key);
+  final TextEditingController _weightController = TextEditingController();
+  final TextEditingController _heightController = TextEditingController();
+  ProfileCompletionScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +22,7 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: screenWidth * 0.02),
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.02),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -78,6 +81,7 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
                           Expanded(
                               flex: 8,
                               child: CustomTextformfield(
+                                controller: _weightController,
                                 size: screenWidth * 0.03,
                                 hinText: "Your Weight",
                                 icon: Icon(Fitnestx.weightScale_1),
@@ -104,6 +108,7 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
                           Expanded(
                             flex: 8,
                             child: CustomTextformfield(
+                              controller: _heightController,
                               size: screenWidth * 0.03,
                               hinText: "Your Height",
                               icon: Icon(Fitnestx.swaps),
@@ -127,20 +132,47 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
                   ),
                 ),
               ),
-              
               Padding(
-                padding:  EdgeInsets.symmetric(vertical: screenHeight * 0.03),
+                padding: EdgeInsets.symmetric(vertical: screenHeight * 0.03),
                 child: CustomElevetadButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _saveProfileData(context);
+                    },
                     text: "NEXT",
                     height: screenHeight * 0.07,
                     width: screenWidth * 0.9),
               ),
-             
             ],
           ),
         ),
       ),
     );
+  }
+
+  Future<void> _saveProfileData(BuildContext context) async {
+    final String weight = _weightController.text;
+    final String height = _heightController.text;
+    final String? gender = context.read<GenderCubit>().state;
+    final DateTime? dob = context.read<DateCubit>().state;
+    if (weight.isEmpty || height.isEmpty || gender == null || dob == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Please complete all fields")),
+      );
+      return;
+    }
+    try {
+      await FirebaseFirestore.instance.collection('users').add({
+        'weight': weight,
+        'height': height,
+        'gender': gender,
+        'date_of_brith': dob.toIso8601String(),
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Profil saved data succesfully!")),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Failed to save profile data ${e} ")));
+    }
   }
 }

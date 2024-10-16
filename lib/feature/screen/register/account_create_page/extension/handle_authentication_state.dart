@@ -20,7 +20,7 @@ extension AuthenticationStateHundler on AuthenticationState {
           context,
           PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                const ProfileCompletionScreen(),
+                 ProfileCompletionScreen(),
             transitionDuration: Duration.zero,
             reverseTransitionDuration: Duration.zero,
           ),

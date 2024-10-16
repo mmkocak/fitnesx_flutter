@@ -41,7 +41,7 @@ class fitnesX extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,
-        home: const ProfileCompletionScreen(),
+        home:  ProfileCompletionScreen(),
       ),
     );
   }
