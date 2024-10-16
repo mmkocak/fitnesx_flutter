@@ -7,6 +7,7 @@ import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/w
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/custom_textformfield.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/date_container.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/dropdown_container.dart';
+import 'package:fitnesx_flutter/feature/screen/register/register_page_tree/register_tree_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/fitnestx_icons.dart';
 
@@ -137,7 +138,10 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
                 padding: EdgeInsets.symmetric(vertical: screenHeight * 0.03),
                 child: CustomElevetadButton(
                     onPressed: () {
-                      context.SaveProfileData(weight: _weightController.text, height: _heightController.text);
+                      context.SaveProfileData(
+                          weight: _weightController.text,
+                          height: _heightController.text,
+                          nextpage: const  RegisterTreeScreen());
                     },
                     text: "NEXT",
                     height: screenHeight * 0.07,
@@ -149,5 +153,4 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
       ),
     );
   }
-
 }

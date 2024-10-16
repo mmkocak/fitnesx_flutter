@@ -3,13 +3,18 @@ import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/c
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
-extension ProfileDataExtension on BuildContext{
-  Future<void> SaveProfileData({required String weight, required String height}) async {
+extension ProfileDataExtension on BuildContext {
+  Future<void> SaveProfileData({
+    required String weight,
+    required String height,
+    required Widget nextpage,
+  }) async {
     final String? gender = this.read<GenderCubit>().state;
     final DateTime? dob = this.read<DateCubit>().state;
+
     if (weight.isEmpty || height.isEmpty || gender == null || dob == null) {
       ScaffoldMessenger.of(this).showSnackBar(
-        SnackBar(content: Text("Please complete all fields")),
+        const SnackBar(content: Text("Please complete all fields")),
       );
       return;
     }
@@ -20,8 +25,14 @@ extension ProfileDataExtension on BuildContext{
         'gender': gender,
         'date_of_brith': dob.toIso8601String(),
       });
+      Navigator.pushReplacement(
+          this,
+          PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) => nextpage,
+              reverseTransitionDuration: Duration.zero,
+              transitionDuration: Duration.zero));
       ScaffoldMessenger.of(this).showSnackBar(
-        SnackBar(content: Text("Profil saved data succesfully!")),
+        const SnackBar(content: Text("Profil saved data succesfully!")),
       );
     } catch (e) {
       ScaffoldMessenger.of(this).showSnackBar(
