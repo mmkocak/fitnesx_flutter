@@ -1,5 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/date_cubit.dart';
+
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/extension/user_register_extension.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/mixin/date_mixin.dart';
