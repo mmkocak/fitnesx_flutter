@@ -1,4 +1,5 @@
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
+import 'package:fitnesx_flutter/core/bloc/register_container/register_tree_bloc.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/date_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/profile_completion_screen.dart';
@@ -37,6 +38,9 @@ class fitnesX extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AuthenticationBloc(),
+        ),
+         BlocProvider<RegisterTreeBloc>(
+          create: (context) => RegisterTreeBloc(),
         ),
       ],
       child: MaterialApp(
