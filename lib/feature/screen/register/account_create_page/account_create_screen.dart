@@ -3,6 +3,7 @@ import 'package:fitnesx_flutter/core/bloc/auth/authentication_event.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
 import 'package:fitnesx_flutter/feature/screen/register/account_create_page/extension/handle_authentication_state.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
+import 'package:fitnesx_flutter/fitnestx_icons.dart';
 
 class AccounCreateScreen extends StatefulWidget {
   const AccounCreateScreen({super.key});
@@ -98,7 +99,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                         ),
                         const CustomTextfield(
                           hinText: "Password",
-                          icons: Icons.lock_outline,
+                          icons: Fitnestx.lock,
                         ),
                         SizedBox(
                           height: screenWidth * 0.03,
