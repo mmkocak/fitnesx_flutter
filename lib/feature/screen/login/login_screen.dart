@@ -1,5 +1,7 @@
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_event.dart';
+import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
+import 'package:fitnesx_flutter/feature/screen/go_to_home/go_to_home_screen.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/custom_textformfield.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/feature/utils/widgets/custom_password_textfield.dart';
@@ -22,14 +24,15 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   final TextEditingController emailController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
+
   String googleIcon = "assets/images/google.png";
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.sizeOf(context).width;
     double screenHeight = MediaQuery.sizeOf(context).height;
+
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
@@ -70,44 +73,79 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               height: screenHeight * 0.03,
             ),
-            Form(
-              child: Column(
-                children: [
-                  Container(
-                    width: screenWidth * 0.9,
-                    child: CustomTextformfield(
-                        hinText: "Email",
-                        icon: const Icon(Fitnestx.message),
-                        size: screenWidth * 0.03,
-                        controller: emailController),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.03,
-                  ),
-                  Container(
-                    width: screenWidth * 0.9,
-                    child: CustomPasswordTextfield(
-                        hinText: "Password",
-                        icon: const Icon(Fitnestx.lock),
-                        size: screenWidth * 0.03,
-                        controller: passwordController),
-                  ),
-                  SizedBox(
-                    height: screenHeight * 0.01,
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Forgot your password ? ",
-                      style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: screenWidth * 0.03,
-                        color: AppColors.gray_1,
-                        decoration: TextDecoration.underline,
+            BlocProvider(
+              create: (context) => AuthenticationBloc(),
+              child: BlocListener<AuthenticationBloc, AuthenticationState>(
+                listener: (context, state) {
+                   if (state is AuthenticationAuthenticated) {
+                WidgetsBinding.instance.addPersistentFrameCallback((_) {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                        pageBuilder:
+                            (context, animation, secondaryAnimation) =>
+                                const GoToHomeScreen(),
+                        transitionDuration: Duration.zero,
+                        reverseTransitionDuration: Duration.zero),
+                  );
+                });
+              } else if (state is AuthenticationFailure) {
+                WidgetsBinding.instance.addPersistentFrameCallback((_) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text("Login Failed  ${state.error}")));
+                });
+              }
+                
+                },
+                child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                  builder: (context, state) {
+                    if (state is AuthenticationLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    } 
+                    return Form(
+                      child: Column(
+                        children: [
+                          Container(
+                            width: screenWidth * 0.9,
+                            child: CustomTextformfield(
+                                hinText: "Email",
+                                icon: const Icon(Fitnestx.message),
+                                size: screenWidth * 0.03,
+                                controller: emailController),
+                          ),
+                          SizedBox(
+                            height: screenHeight * 0.03,
+                          ),
+                          Container(
+                            width: screenWidth * 0.9,
+                            child: CustomPasswordTextfield(
+                                hinText: "Password",
+                                icon: const Icon(Fitnestx.lock),
+                                size: screenWidth * 0.03,
+                                controller: passwordController),
+                          ),
+                          SizedBox(
+                            height: screenHeight * 0.01,
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Forgot your password ? ",
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: screenWidth * 0.03,
+                                color: AppColors.gray_1,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ),
-                ],
+                    );
+                  },
+                ),
               ),
             ),
             SizedBox(
@@ -120,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
               width: screenWidth * 0.9,
             ),
             SizedBox(
-              height: screenHeight * 0.03,
+              height: screenHeight * 0.02,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
@@ -147,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             SizedBox(
-              height: screenHeight * 0.03,
+              height: screenHeight * 0.02,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -204,7 +242,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
             SizedBox(
-              height: screenHeight * 0.03,
+              height: screenHeight * 0.02,
             ),
             RichText(
               text: TextSpan(
@@ -213,7 +251,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     text: "Don't have an account yet? ",
                     style: TextStyle(
                       fontFamily: "Poppins",
-                      fontSize: screenWidth * 0.03,
+                      fontSize: screenWidth * 0.04,
                       color: AppColors.blackColor,
                       fontWeight: FontWeight.w500,
                     ),
@@ -232,9 +270,26 @@ class _LoginScreenState extends State<LoginScreen> {
                           end: Alignment.bottomRight,
                         ).createShader(bounds);
                       },
-                      child: Text(" Register?", style: TextStyle(color: AppColors.whiteColor, fontFamily: "Poppins", fontSize: screenWidth * 0.03),),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              PageRouteBuilder(
+                                  pageBuilder: (context, animation,
+                                          secondaryAnimation) =>
+                                      AccounCreateScreen(),
+                                  transitionDuration: Duration.zero,
+                                  reverseTransitionDuration: Duration.zero));
+                        },
+                        child: Text(
+                          "Register?",
+                          style: TextStyle(
+                              color: AppColors.whiteColor,
+                              fontFamily: "Poppins",
+                              fontSize: screenWidth * 0.04),
+                        ),
+                      ),
                     ),
-
                   ),
                 ],
               ),

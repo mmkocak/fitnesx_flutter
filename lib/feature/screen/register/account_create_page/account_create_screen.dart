@@ -1,6 +1,7 @@
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_event.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
+import 'package:fitnesx_flutter/feature/screen/login/login_screen.dart';
 import 'package:fitnesx_flutter/feature/screen/register/account_create_page/extension/handle_authentication_state.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/fitnestx_icons.dart';
@@ -230,11 +231,24 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                               end: Alignment.bottomRight,
                             ).createShader(bounds);
                           },
-                          child: Text("Login",
-                              style: TextStyle(
-                                  fontSize: screenWidth * 0.04,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white)),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  PageRouteBuilder(
+                                      pageBuilder: (context, animation,
+                                              secondaryAnimation) =>
+                                          LoginScreen(),
+                                      transitionDuration: Duration.zero,
+                                      reverseTransitionDuration:
+                                          Duration.zero));
+                            },
+                            child: Text("Login",
+                                style: TextStyle(
+                                    fontSize: screenWidth * 0.04,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                          ),
                         ),
                       ),
                     ]))
