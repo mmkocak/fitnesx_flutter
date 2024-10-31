@@ -34,267 +34,269 @@ class _LoginScreenState extends State<LoginScreen> {
     double screenHeight = MediaQuery.sizeOf(context).height;
 
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: screenHeight * 0.05,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Hey there,",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: screenWidth * 0.04,
-                      color: AppColors.blackColor),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: screenHeight * 0.01,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Welcome Back",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: screenWidth * 0.05,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: screenHeight * 0.03,
-            ),
-            BlocProvider(
-              create: (context) => AuthenticationBloc(),
-              child: BlocListener<AuthenticationBloc, AuthenticationState>(
-                listener: (context, state) {
-                   if (state is AuthenticationAuthenticated) {
-                WidgetsBinding.instance.addPersistentFrameCallback((_) {
-                  Navigator.push(
-                    context,
-                    PageRouteBuilder(
-                        pageBuilder:
-                            (context, animation, secondaryAnimation) =>
-                                const GoToHomeScreen(),
-                        transitionDuration: Duration.zero,
-                        reverseTransitionDuration: Duration.zero),
-                  );
-                });
-              } else if (state is AuthenticationFailure) {
-                WidgetsBinding.instance.addPersistentFrameCallback((_) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text("Login Failed  ${state.error}")));
-                });
-              }
-                
-                },
-                child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                  builder: (context, state) {
-                    if (state is AuthenticationLoading) {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    } 
-                    return Form(
-                      child: Column(
-                        children: [
-                          Container(
-                            width: screenWidth * 0.9,
-                            child: CustomTextformfield(
-                                hinText: "Email",
-                                icon: const Icon(Fitnestx.message),
-                                size: screenWidth * 0.03,
-                                controller: emailController),
-                          ),
-                          SizedBox(
-                            height: screenHeight * 0.03,
-                          ),
-                          Container(
-                            width: screenWidth * 0.9,
-                            child: CustomPasswordTextfield(
-                                hinText: "Password",
-                                icon: const Icon(Fitnestx.lock),
-                                size: screenWidth * 0.03,
-                                controller: passwordController),
-                          ),
-                          SizedBox(
-                            height: screenHeight * 0.01,
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Forgot your password ? ",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: screenWidth * 0.03,
-                                color: AppColors.gray_1,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: screenHeight * 0.05,
               ),
-            ),
-            SizedBox(
-              height: screenHeight * 0.3,
-            ),
-            CustomElevetadButton(
-              onPressed: () {},
-              text: "Login",
-              height: screenHeight * 0.07,
-              width: screenWidth * 0.9,
-            ),
-            SizedBox(
-              height: screenHeight * 0.02,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
-              child: Row(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    flex: 2,
-                    child: Divider(color: AppColors.gray_1),
-                  ),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
-                    child: Text(
-                      "or",
-                      style: TextStyle(
-                          fontFamily: "Poppins", fontSize: screenWidth * 0.04),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Divider(color: AppColors.gray_1),
+                  Text(
+                    "Hey there,",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: screenWidth * 0.04,
+                        color: AppColors.blackColor),
                   ),
                 ],
               ),
-            ),
-            SizedBox(
-              height: screenHeight * 0.02,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () async {
-                    print("Google TIklandı");
-                    await SignInWithGoogle();
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border.all(
-                        color: AppColors.gray_3,
-                        width: 2,
-                      ),
-                    ),
-                    height: 50,
-                    width: 50,
-                    child: Center(
-                        child: Image.asset(
-                      googleIcon,
-                      width: 25,
-                      height: 25,
-                    )),
-                  ),
-                ),
-                SizedBox(
-                  width: screenWidth * 0.04,
-                ),
-                GestureDetector(
-                  onTap: () async {
-                    print("Face Tıklandı");
-                    await signInWithFacebook();
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      border: Border.all(
-                        color: AppColors.gray_3,
-                        width: 2,
-                      ),
-                    ),
-                    height: 50,
-                    width: 50,
-                    child: const Icon(
-                      Icons.facebook,
-                      color: Colors.blue,
-                      size: 30,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: screenHeight * 0.02,
-            ),
-            RichText(
-              text: TextSpan(
+              SizedBox(
+                height: screenHeight * 0.01,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  TextSpan(
-                    text: "Don't have an account yet? ",
+                  Text(
+                    "Welcome Back",
                     style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: screenWidth * 0.04,
-                      color: AppColors.blackColor,
-                      fontWeight: FontWeight.w500,
+                        fontFamily: "Poppins",
+                        fontSize: screenWidth * 0.05,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: screenHeight * 0.03,
+              ),
+              BlocProvider(
+                create: (context) => AuthenticationBloc(),
+                child: BlocListener<AuthenticationBloc, AuthenticationState>(
+                  listener: (context, state) {
+                     if (state is AuthenticationAuthenticated) {
+                  WidgetsBinding.instance.addPersistentFrameCallback((_) {
+                    Navigator.push(
+                      context,
+                      PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  const GoToHomeScreen(),
+                          transitionDuration: Duration.zero,
+                          reverseTransitionDuration: Duration.zero),
+                    );
+                  });
+                } else if (state is AuthenticationFailure) {
+                  WidgetsBinding.instance.addPersistentFrameCallback((_) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text("Login Failed  ${state.error}")));
+                  });
+                }
+                  
+                  },
+                  child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                    builder: (context, state) {
+                      if (state is AuthenticationLoading) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } 
+                      return Form(
+                        child: Column(
+                          children: [
+                            Container(
+                              width: screenWidth * 0.9,
+                              child: CustomTextformfield(
+                                  hinText: "Email",
+                                  icon: const Icon(Fitnestx.message),
+                                  size: screenWidth * 0.03,
+                                  controller: emailController),
+                            ),
+                            SizedBox(
+                              height: screenHeight * 0.03,
+                            ),
+                            Container(
+                              width: screenWidth * 0.9,
+                              child: CustomPasswordTextfield(
+                                  hinText: "Password",
+                                  icon: const Icon(Fitnestx.lock),
+                                  size: screenWidth * 0.03,
+                                  controller: passwordController),
+                            ),
+                            SizedBox(
+                              height: screenHeight * 0.01,
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Forgot your password ? ",
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: screenWidth * 0.03,
+                                  color: AppColors.gray_1,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: screenHeight * 0.3,
+              ),
+              CustomElevetadButton(
+                onPressed: () {},
+                text: "Login",
+                height: screenHeight * 0.07,
+                width: screenWidth * 0.9,
+              ),
+              SizedBox(
+                height: screenHeight * 0.02,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Divider(color: AppColors.gray_1),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
+                      child: Text(
+                        "or",
+                        style: TextStyle(
+                            fontFamily: "Poppins", fontSize: screenWidth * 0.04),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Divider(color: AppColors.gray_1),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: screenHeight * 0.02,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () async {
+                      print("Google TIklandı");
+                      await SignInWithGoogle();
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: AppColors.gray_3,
+                          width: 2,
+                        ),
+                      ),
+                      height: 50,
+                      width: 50,
+                      child: Center(
+                          child: Image.asset(
+                        googleIcon,
+                        width: 25,
+                        height: 25,
+                      )),
                     ),
                   ),
-                  WidgetSpan(
-                    alignment: PlaceholderAlignment.baseline,
-                    baseline: TextBaseline.alphabetic,
-                    child: ShaderMask(
-                      shaderCallback: (Rect bounds) {
-                        return LinearGradient(
-                          colors: <Color>[
-                            AppColors.purple_1,
-                            AppColors.purple_2
-                          ],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ).createShader(bounds);
-                      },
-                      child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              PageRouteBuilder(
-                                  pageBuilder: (context, animation,
-                                          secondaryAnimation) =>
-                                      AccounCreateScreen(),
-                                  transitionDuration: Duration.zero,
-                                  reverseTransitionDuration: Duration.zero));
+                  SizedBox(
+                    width: screenWidth * 0.04,
+                  ),
+                  GestureDetector(
+                    onTap: () async {
+                      print("Face Tıklandı");
+                      await signInWithFacebook();
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: AppColors.gray_3,
+                          width: 2,
+                        ),
+                      ),
+                      height: 50,
+                      width: 50,
+                      child: const Icon(
+                        Icons.facebook,
+                        color: Colors.blue,
+                        size: 30,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: screenHeight * 0.02,
+              ),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "Don't have an account yet? ",
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: screenWidth * 0.04,
+                        color: AppColors.blackColor,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    WidgetSpan(
+                      alignment: PlaceholderAlignment.baseline,
+                      baseline: TextBaseline.alphabetic,
+                      child: ShaderMask(
+                        shaderCallback: (Rect bounds) {
+                          return const LinearGradient(
+                            colors: <Color>[
+                              AppColors.purple_1,
+                              AppColors.purple_2
+                            ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ).createShader(bounds);
                         },
-                        child: Text(
-                          "Register?",
-                          style: TextStyle(
-                              color: AppColors.whiteColor,
-                              fontFamily: "Poppins",
-                              fontSize: screenWidth * 0.04),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                PageRouteBuilder(
+                                    pageBuilder: (context, animation,
+                                            secondaryAnimation) =>
+                                        const AccounCreateScreen(),
+                                    transitionDuration: Duration.zero,
+                                    reverseTransitionDuration: Duration.zero));
+                          },
+                          child: Text(
+                            "Register?",
+                            style: TextStyle(
+                                color: AppColors.whiteColor,
+                                fontFamily: "Poppins",
+                                fontSize: screenWidth * 0.04),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
