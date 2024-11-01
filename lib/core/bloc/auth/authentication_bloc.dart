@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_event.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
@@ -5,6 +6,7 @@ import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseFirestore  _firebaseStore= FirebaseFirestore.instance;
   AuthenticationBloc() : super(AuthenticationInitial()) {
     on<GoogleSignInRequested>(_googleSignIn);
     on<FacebookSignInRequested>(_facebookSignIn);
@@ -81,11 +83,24 @@ class AuthenticationBloc
       final UserCredential userCredential =
           await _firebaseAuth.createUserWithEmailAndPassword(
               email: event.email, password: event.password);
+              await _saveuserToFireStore(userCredential.user, event.firstname, event.lastname);
       await userCredential.user!
           .updateDisplayName("${event.firstname} ${event.lastname}}");
       emit(AuthenticationAuthenticated(userCredential.user!));
     } catch (e) {
+       print("Sign Up Error: $e"); 
       AuthenticationFailure(e.toString());
+    }
+  }
+  Future<void> _saveuserToFireStore(User? user, [String?  firstname, String? lastname]) async{
+    if(user != null){
+      await _firebaseStore.collection('users').doc(user.uid).set({
+        "uid": user.uid,
+        "email": user.email,
+        "firstname": firstname ?? '',
+        "lastname": lastname ?? '',
+        'signUpTimesTamp': FieldValue.serverTimestamp(),
+      });
     }
   }
   // SigOut

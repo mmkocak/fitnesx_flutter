@@ -2,13 +2,14 @@ import '../common/common_imports.dart';
 class CustomTextfield extends StatelessWidget {
   final String hinText;
   final IconData icons;
-
- const CustomTextfield({super.key, required this.hinText, required this.icons});
+  final TextEditingController controller;
+ const CustomTextfield({super.key, required this.hinText, required this.icons, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.sizeOf(context).width;
     return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.all(screenWidth * 0.04),
         filled: true,

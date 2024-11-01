@@ -156,6 +156,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 builder: (context, state) {
                   return CustomElevetadButton(
                     onPressed: () {
+                      context.read<AuthenticationBloc>().add( EmailSignInRequested(email: emailController.text, password: passwordController.text));
+                     
                     },
                     text: "Login",
                     height: screenHeight * 0.07,

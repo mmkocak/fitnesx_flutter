@@ -81,28 +81,32 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                   child: Form(
                     child: Column(
                       children: [
-                        const CustomTextfield(
+                         CustomTextfield(
+                          controller: _firstnameController,
                           hinText: "First Name",
                           icons: Icons.person_outline_outlined,
                         ),
                         SizedBox(
                           height: screenWidth * 0.04,
                         ),
-                        const CustomTextfield(
+                         CustomTextfield(
+                          controller: _lastnameController,
                           hinText: "Last Name",
                           icons: Icons.person_outline_outlined,
                         ),
                         SizedBox(
                           height: screenWidth * 0.04,
                         ),
-                        const CustomTextfield(
+                         CustomTextfield(
+                          controller: _emailController,
                           hinText: "Email",
                           icons: Icons.email_outlined,
                         ),
                         SizedBox(
                           height: screenWidth * 0.04,
                         ),
-                        const CustomTextfield(
+                         CustomTextfield(
+                          controller: _passwordController,
                           hinText: "Password",
                           icons: Fitnestx.lock,
                         ),
