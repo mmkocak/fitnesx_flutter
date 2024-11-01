@@ -28,7 +28,7 @@ class fitnesX extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => PrivacyPolicyCubit(),
+          create: (_) => PrivacyPolicyCubit(),
         ),
         BlocProvider(
           create: (context) => GenderCubit(),
@@ -49,7 +49,7 @@ class fitnesX extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,
-        home:  LoginScreen(),
+        home:  AccounCreateScreen(),
       ),
     );
   }

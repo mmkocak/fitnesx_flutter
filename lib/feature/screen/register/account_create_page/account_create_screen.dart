@@ -14,6 +14,8 @@ class AccounCreateScreen extends StatefulWidget {
 }
 
 class _AccounCreateScreenState extends State<AccounCreateScreen> {
+
+   
   // Google SignIn Function
   Future<void> SignInWithGoogle() async {
     context.read<AuthenticationBloc>().add(GoogleSignInRequested());
@@ -23,6 +25,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
   Future<void> signInWithFacebook() async {
     context.read<AuthenticationBloc>().add(FacebookSignInRequested());
   }
+                      
 
   @override
   Widget build(BuildContext context) {
@@ -113,11 +116,15 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                     ),
                   ),
                 ),
-                CustomElevetadButton(
-                  onPressed: () {},
-                  text: "Register",
-                  height: screenHeight * 0.07,
-                  width: screenWidth * 0.9,
+                BlocBuilder<PrivacyPolicyCubit, bool>(
+                  builder: (context, state) {
+                    return CustomElevetadButton(
+                                 onPressed: state ? (){}: null,
+                                  text: "Register",
+                                  height: screenHeight * 0.07,
+                                  width: screenWidth * 0.9,
+                                );
+                  },
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: screenHeight * 0.01),

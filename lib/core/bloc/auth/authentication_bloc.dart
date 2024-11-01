@@ -64,7 +64,7 @@ class AuthenticationBloc
     try {
       final UserCredential userCredential =
           await _firebaseAuth.signInWithEmailAndPassword(
-              email: event.email, password: event.password);
+              email: event.email.toString(), password: event.password.toString());
       emit(AuthenticationAuthenticated(userCredential.user!));
     } catch (e) {
       emit(AuthenticationFailure(e.toString()));

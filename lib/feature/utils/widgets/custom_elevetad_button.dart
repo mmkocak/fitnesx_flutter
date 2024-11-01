@@ -1,7 +1,7 @@
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 class CustomElevetadButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double width;
   final double height;
   const CustomElevetadButton({required this.onPressed, required this.text, required this.height, required this.width})
@@ -21,6 +21,7 @@ class CustomElevetadButton extends StatelessWidget {
           ),
       ),
       child: ElevatedButton(
+        
         onPressed: onPressed, 
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,

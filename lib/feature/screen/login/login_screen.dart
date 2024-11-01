@@ -22,6 +22,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> signInWithFacebook() async {
     context.read<AuthenticationBloc>().add(FacebookSignInRequested());
   }
+  Future<void> signInWithEmail() async{
+    context.read<AuthenticationBloc>().add(EmailSignInRequested(email: emailController, password: passwordController));
+  }
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -78,25 +81,24 @@ class _LoginScreenState extends State<LoginScreen> {
                 create: (context) => AuthenticationBloc(),
                 child: BlocListener<AuthenticationBloc, AuthenticationState>(
                   listener: (context, state) {
-                     if (state is AuthenticationAuthenticated) {
-                  WidgetsBinding.instance.addPersistentFrameCallback((_) {
-                    Navigator.push(
-                      context,
-                      PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  const GoToHomeScreen(),
-                          transitionDuration: Duration.zero,
-                          reverseTransitionDuration: Duration.zero),
-                    );
-                  });
-                } else if (state is AuthenticationFailure) {
-                  WidgetsBinding.instance.addPersistentFrameCallback((_) {
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Login Failed  ${state.error}")));
-                  });
-                }
-                  
+                    if (state is AuthenticationAuthenticated) {
+                      WidgetsBinding.instance.addPersistentFrameCallback((_) {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      const GoToHomeScreen(),
+                              transitionDuration: Duration.zero,
+                              reverseTransitionDuration: Duration.zero),
+                        );
+                      });
+                    } else if (state is AuthenticationFailure) {
+                      WidgetsBinding.instance.addPersistentFrameCallback((_) {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("Login Failed  ${state.error}")));
+                      });
+                    }
                   },
                   child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
                     builder: (context, state) {
@@ -104,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         return const Center(
                           child: CircularProgressIndicator(),
                         );
-                      } 
+                      }
                       return Form(
                         child: Column(
                           children: [
@@ -152,11 +154,17 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: screenHeight * 0.3,
               ),
-              CustomElevetadButton(
-                onPressed: () {},
-                text: "Login",
-                height: screenHeight * 0.07,
-                width: screenWidth * 0.9,
+              BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                builder: (context, state) {
+                  return CustomElevetadButton(
+                    onPressed: () {
+                       context.read<AuthenticationBloc>().add(EmailSignInRequested(email: emailController, password: passwordController));
+                    },
+                    text: "Login",
+                    height: screenHeight * 0.07,
+                    width: screenWidth * 0.9,
+                  );
+                },
               ),
               SizedBox(
                 height: screenHeight * 0.02,
@@ -175,7 +183,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text(
                         "or",
                         style: TextStyle(
-                            fontFamily: "Poppins", fontSize: screenWidth * 0.04),
+                            fontFamily: "Poppins",
+                            fontSize: screenWidth * 0.04),
                       ),
                     ),
                     Expanded(
