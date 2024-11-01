@@ -10,6 +10,7 @@ class AuthenticationBloc
     on<FacebookSignInRequested>(_facebookSignIn);
     on<SignOutRequested>(_signOut);
     on<EmailSignInRequested>(_emailSignIn);
+    on<EmailSignUpRequested>(_emailSignUp);
   }
 
 // Googlea
@@ -64,13 +65,30 @@ class AuthenticationBloc
     try {
       final UserCredential userCredential =
           await _firebaseAuth.signInWithEmailAndPassword(
-              email: event.email.toString(), password: event.password.toString());
+              email: event.email.toString(),
+              password: event.password.toString());
       emit(AuthenticationAuthenticated(userCredential.user!));
     } catch (e) {
       emit(AuthenticationFailure(e.toString()));
     }
   }
-// SigOut
+
+  // Email Signup
+  Future<void> _emailSignUp(
+      EmailSignUpRequested event, Emitter<AuthenticationState> emit) async {
+    emit(AuthenticationLoading());
+    try {
+      final UserCredential userCredential =
+          await _firebaseAuth.createUserWithEmailAndPassword(
+              email: event.email, password: event.password);
+      await userCredential.user!
+          .updateDisplayName("${event.firstname} ${event.lastname}}");
+      emit(AuthenticationAuthenticated(userCredential.user!));
+    } catch (e) {
+      AuthenticationFailure(e.toString());
+    }
+  }
+  // SigOut
 
   Future<void> _signOut(
       SignOutRequested event, Emitter<AuthenticationState> emit) async {

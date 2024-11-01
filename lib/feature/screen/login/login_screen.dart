@@ -22,9 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> signInWithFacebook() async {
     context.read<AuthenticationBloc>().add(FacebookSignInRequested());
   }
-  Future<void> signInWithEmail() async{
-    context.read<AuthenticationBloc>().add(EmailSignInRequested(email: emailController, password: passwordController));
-  }
+ 
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -158,7 +156,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 builder: (context, state) {
                   return CustomElevetadButton(
                     onPressed: () {
-                       context.read<AuthenticationBloc>().add(EmailSignInRequested(email: emailController, password: passwordController));
                     },
                     text: "Login",
                     height: screenHeight * 0.07,

@@ -28,6 +28,10 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.sizeOf(context).height;
     double screenWidth = MediaQuery.sizeOf(context).width;
+    final TextEditingController _firstnameController = TextEditingController();
+    final TextEditingController _lastnameController = TextEditingController();
+    final TextEditingController _emailController = TextEditingController();
+    final TextEditingController _passwordController = TextEditingController();
     const String googleIcon = "assets/images/google.png";
     return Scaffold(
       body: BlocListener<AuthenticationBloc, AuthenticationState>(
@@ -116,7 +120,16 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                 BlocBuilder<PrivacyPolicyCubit, bool>(
                   builder: (context, state) {
                     return CustomElevetadButton(
-                      onPressed: state ? () {} : null,
+                      onPressed: state
+                          ? () {
+                              context.read<AuthenticationBloc>().add(
+                                  EmailSignUpRequested(
+                                      firstname: _firstnameController.text,
+                                      lastname: _lastnameController.text,
+                                      email: _emailController.text,
+                                      password: _passwordController.text));
+                            }
+                          : null,
                       text: "Register",
                       height: screenHeight * 0.07,
                       width: screenWidth * 0.9,
@@ -159,12 +172,14 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Opacity(
-                          opacity: state? 1.0:0.5,
+                          opacity: state ? 1.0 : 0.5,
                           child: GestureDetector(
-                            onTap: state?  () async {
-                              print("Google TIklandı");
-                              await SignInWithGoogle();
-                            }: null,
+                            onTap: state
+                                ? () async {
+                                    print("Google TIklandı");
+                                    await SignInWithGoogle();
+                                  }
+                                : null,
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(14),
@@ -188,12 +203,14 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                           width: screenWidth * 0.04,
                         ),
                         Opacity(
-                          opacity: state? 1.0:0.5,
+                          opacity: state ? 1.0 : 0.5,
                           child: GestureDetector(
-                            onTap: state? () async {
-                              print("Face Tıklandı");
-                              await signInWithFacebook();
-                            }:null,
+                            onTap: state
+                                ? () async {
+                                    print("Face Tıklandı");
+                                    await signInWithFacebook();
+                                  }
+                                : null,
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(14),
