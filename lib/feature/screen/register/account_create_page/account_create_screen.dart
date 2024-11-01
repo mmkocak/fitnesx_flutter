@@ -14,8 +14,6 @@ class AccounCreateScreen extends StatefulWidget {
 }
 
 class _AccounCreateScreenState extends State<AccounCreateScreen> {
-
-   
   // Google SignIn Function
   Future<void> SignInWithGoogle() async {
     context.read<AuthenticationBloc>().add(GoogleSignInRequested());
@@ -25,7 +23,6 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
   Future<void> signInWithFacebook() async {
     context.read<AuthenticationBloc>().add(FacebookSignInRequested());
   }
-                      
 
   @override
   Widget build(BuildContext context) {
@@ -119,11 +116,11 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                 BlocBuilder<PrivacyPolicyCubit, bool>(
                   builder: (context, state) {
                     return CustomElevetadButton(
-                                 onPressed: state ? (){}: null,
-                                  text: "Register",
-                                  height: screenHeight * 0.07,
-                                  width: screenWidth * 0.9,
-                                );
+                      onPressed: state ? () {} : null,
+                      text: "Register",
+                      height: screenHeight * 0.07,
+                      width: screenWidth * 0.9,
+                    );
                   },
                 ),
                 Padding(
@@ -155,59 +152,69 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                     ],
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    GestureDetector(
-                      onTap: () async {
-                        print("Google TIklandı");
-                        await SignInWithGoogle();
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(14),
-                          border: Border.all(
-                            color: AppColors.gray_3,
-                            width: 2,
+                BlocBuilder<PrivacyPolicyCubit, bool>(
+                  builder: (context, state) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Opacity(
+                          opacity: state? 1.0:0.5,
+                          child: GestureDetector(
+                            onTap: state?  () async {
+                              print("Google TIklandı");
+                              await SignInWithGoogle();
+                            }: null,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(
+                                  color: AppColors.gray_3,
+                                  width: 2,
+                                ),
+                              ),
+                              height: 50,
+                              width: 50,
+                              child: Center(
+                                  child: Image.asset(
+                                googleIcon,
+                                width: 25,
+                                height: 25,
+                              )),
+                            ),
                           ),
                         ),
-                        height: 50,
-                        width: 50,
-                        child: Center(
-                            child: Image.asset(
-                          googleIcon,
-                          width: 25,
-                          height: 25,
-                        )),
-                      ),
-                    ),
-                    SizedBox(
-                      width: screenWidth * 0.04,
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        print("Face Tıklandı");
-                        await signInWithFacebook();
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(14),
-                          border: Border.all(
-                            color: AppColors.gray_3,
-                            width: 2,
+                        SizedBox(
+                          width: screenWidth * 0.04,
+                        ),
+                        Opacity(
+                          opacity: state? 1.0:0.5,
+                          child: GestureDetector(
+                            onTap: state? () async {
+                              print("Face Tıklandı");
+                              await signInWithFacebook();
+                            }:null,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(14),
+                                border: Border.all(
+                                  color: AppColors.gray_3,
+                                  width: 2,
+                                ),
+                              ),
+                              height: 50,
+                              width: 50,
+                              child: const Icon(
+                                Icons.facebook,
+                                color: Colors.blue,
+                                size: 30,
+                              ),
+                            ),
                           ),
                         ),
-                        height: 50,
-                        width: 50,
-                        child: const Icon(
-                          Icons.facebook,
-                          color: Colors.blue,
-                          size: 30,
-                        ),
-                      ),
-                    ),
-                  ],
+                      ],
+                    );
+                  },
                 ),
                 SizedBox(
                   height: screenHeight * 0.03,
