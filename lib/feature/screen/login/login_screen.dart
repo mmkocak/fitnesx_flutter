@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_event.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
@@ -22,10 +24,9 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> signInWithFacebook() async {
     context.read<AuthenticationBloc>().add(FacebookSignInRequested());
   }
- 
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   String googleIcon = "assets/images/google.png";
 
@@ -75,78 +76,75 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 height: screenHeight * 0.03,
               ),
-              BlocProvider(
-                create: (context) => AuthenticationBloc(),
-                child: BlocListener<AuthenticationBloc, AuthenticationState>(
-                  listener: (context, state) {
-                    if (state is AuthenticationAuthenticated) {
-                      WidgetsBinding.instance.addPersistentFrameCallback((_) {
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                              pageBuilder:
-                                  (context, animation, secondaryAnimation) =>
-                                      const GoToHomeScreen(),
-                              transitionDuration: Duration.zero,
-                              reverseTransitionDuration: Duration.zero),
-                        );
-                      });
-                    } else if (state is AuthenticationFailure) {
-                      WidgetsBinding.instance.addPersistentFrameCallback((_) {
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            content: Text("Login Failed  ${state.error}")));
-                      });
+              BlocListener<AuthenticationBloc, AuthenticationState>(
+                listener: (context, state) {
+                  if (state is AuthenticationAuthenticated) {
+                    WidgetsBinding.instance.addPersistentFrameCallback((_) {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    const GoToHomeScreen(),
+                            transitionDuration: Duration.zero,
+                            reverseTransitionDuration: Duration.zero),
+                      );
+                    });
+                  } else if (state is AuthenticationFailure) {
+                    WidgetsBinding.instance.addPersistentFrameCallback((_) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text("Login Failed  ${state.error}")));
+                    });
+                  }
+                },
+                child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                  builder: (context, state) {
+                    if (state is AuthenticationLoading) {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
                     }
-                  },
-                  child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                    builder: (context, state) {
-                      if (state is AuthenticationLoading) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
-                      }
-                      return Form(
-                        child: Column(
-                          children: [
-                            Container(
-                              width: screenWidth * 0.9,
-                              child: CustomTextformfield(
-                                  hinText: "Email",
-                                  icon: const Icon(Fitnestx.message),
-                                  size: screenWidth * 0.03,
-                                  controller: emailController),
-                            ),
-                            SizedBox(
-                              height: screenHeight * 0.03,
-                            ),
-                            Container(
-                              width: screenWidth * 0.9,
-                              child: CustomPasswordTextfield(
-                                  hinText: "Password",
-                                  icon: const Icon(Fitnestx.lock),
-                                  size: screenWidth * 0.03,
-                                  controller: passwordController),
-                            ),
-                            SizedBox(
-                              height: screenHeight * 0.01,
-                            ),
-                            TextButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Forgot your password ? ",
-                                style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: screenWidth * 0.03,
-                                  color: AppColors.gray_1,
-                                  decoration: TextDecoration.underline,
-                                ),
+                    return Form(
+                      child: Column(
+                        children: [
+                          Container(
+                            width: screenWidth * 0.9,
+                            child: CustomTextformfield(
+                                hinText: "Email",
+                                icon: const Icon(Fitnestx.message),
+                                size: screenWidth * 0.03,
+                                controller: _emailController),
+                          ),
+                          SizedBox(
+                            height: screenHeight * 0.03,
+                          ),
+                          Container(
+                            width: screenWidth * 0.9,
+                            child: CustomPasswordTextfield(
+                                hinText: "Password",
+                                icon: const Icon(Fitnestx.lock),
+                                size: screenWidth * 0.03,
+                                controller: _passwordController),
+                          ),
+                          SizedBox(
+                            height: screenHeight * 0.01,
+                          ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Forgot your password ? ",
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: screenWidth * 0.03,
+                                color: AppColors.gray_1,
+                                decoration: TextDecoration.underline,
                               ),
                             ),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                 ),
               ),
               SizedBox(
@@ -156,8 +154,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 builder: (context, state) {
                   return CustomElevetadButton(
                     onPressed: () {
-                      context.read<AuthenticationBloc>().add( EmailSignInRequested(email: emailController.text, password: passwordController.text));
-                     
+                      context.read<AuthenticationBloc>().add(
+                          EmailSignInRequested(
+                              email: _emailController.text,
+                              password: _passwordController.text));
                     },
                     text: "Login",
                     height: screenHeight * 0.07,
@@ -202,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   GestureDetector(
                     onTap: () async {
-                      print("Google TIklandı");
+                      print( "Google TIklandı");
                       await SignInWithGoogle();
                     },
                     child: Container(
