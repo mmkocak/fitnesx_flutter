@@ -1,6 +1,7 @@
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/passowrd_visibility.dart/password_visibility_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/register_container/register_tree_bloc.dart';
+import 'package:fitnesx_flutter/feature/screen/go_to_home/go_to_home_screen.dart';
 import 'package:fitnesx_flutter/feature/screen/login/login_screen.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/date_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
@@ -49,7 +50,7 @@ class fitnesX extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,
-        home:  AccounCreateScreen(),
+        home:  LoginScreen(),
       ),
     );
   }
