@@ -3,8 +3,9 @@ import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class GoToHomeScreen extends StatefulWidget {
-  
-  GoToHomeScreen({Key? key,}) : super(key: key);
+  GoToHomeScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<GoToHomeScreen> createState() => _GoToHomeScreenState();
@@ -28,7 +29,7 @@ class _GoToHomeScreenState extends State<GoToHomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: screenHeight * 0.15,
+                  height: screenHeight * 0.14,
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
@@ -42,7 +43,6 @@ class _GoToHomeScreenState extends State<GoToHomeScreen> {
                 SizedBox(
                   height: screenHeight * 0.03,
                 ),
-                
                 RichText(
                   text: TextSpan(
                     children: [
@@ -65,11 +65,29 @@ class _GoToHomeScreenState extends State<GoToHomeScreen> {
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: screenHeight * 0.01,
+                ),
+                Text(
+                  textAlign: TextAlign.center,
+                  "You are all set now, let’s reach your\n goals together with us",
+                  style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: screenWidth * 0.03,
+                    color: AppColors.gray_1,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.17,),
+                CustomElevetadButton(
+                    onPressed: () {},
+                    text: "Go To  Home",
+                    height: screenHeight * 0.07,
+                    width: screenWidth * 0.9)
               ],
             ),
           );
         }
-         return Scaffold(
+        return Scaffold(
           body: Center(child: Text('Please login to continue.')),
         );
       },
