@@ -12,8 +12,8 @@ class AuthenticationLoading extends AuthenticationState{}
 
 class AuthenticationAuthenticated extends AuthenticationState{
   final User user;
-  
-  AuthenticationAuthenticated(this.user);
+  final String? firstname;
+  AuthenticationAuthenticated(this.user,[ this.firstname]);
   @override
   List<Object> get props => [user];
 }

@@ -2,55 +2,77 @@ import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
-class GoToHomeScreen extends StatelessWidget {
-  const GoToHomeScreen({Key? key}) : super(key: key);
+class GoToHomeScreen extends StatefulWidget {
+  
+  GoToHomeScreen({Key? key,}) : super(key: key);
 
+  @override
+  State<GoToHomeScreen> createState() => _GoToHomeScreenState();
+}
+
+class _GoToHomeScreenState extends State<GoToHomeScreen> {
+  @override
   @override
   Widget build(BuildContext context) {
     const String imageName = "assets/images/register5.png";
     double screenWidth = MediaQuery.sizeOf(context).width;
     double screenHeight = MediaQuery.sizeOf(context).height;
-    return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            height: screenHeight * 0.1,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
-            child: const Image(
-              image: AssetImage(imageName),
+
+    return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+      builder: (context, state) {
+        if (state is AuthenticationAuthenticated) {
+          final user = state.user;
+          final firstName = user.displayName?.split(' ').first ?? 'User';
+          return Scaffold(
+            body: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: screenHeight * 0.15,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.04),
+                  child: Image(
+                    width: screenWidth * 0.9,
+                    image: AssetImage(
+                      imageName,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.03,
+                ),
+                
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "Welcome, ",
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: screenWidth * 0.05,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.blackColor),
+                      ),
+                      TextSpan(
+                        text: "$firstName",
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: screenWidth * 0.05,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.blackColor),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ),
-          SizedBox(
-            height: screenHeight * 0.03,
-          ),
-          BlocBuilder<AuthenticationBloc, AuthenticationState>(
-            builder: (context, state) {
-              return RichText(
-                text: TextSpan(children: [
-                  TextSpan(
-                    text: "Welcome, ",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.bold,
-                        fontSize: screenWidth * 0.05,
-                        color: AppColors.blackColor),
-                  ),
-                  TextSpan(
-                    text: "",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.bold,
-                        fontSize: screenWidth * 0.05,
-                        color: AppColors.blackColor),
-                  ),
-                ]),
-              );
-            },
-          ),
-        ],
-      ),
+          );
+        }
+         return Scaffold(
+          body: Center(child: Text('Please login to continue.')),
+        );
+      },
     );
   }
 }

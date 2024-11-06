@@ -79,18 +79,19 @@ class _LoginScreenState extends State<LoginScreen> {
               BlocListener<AuthenticationBloc, AuthenticationState>(
                 listener: (context, state) {
                   if (state is AuthenticationAuthenticated) {
-                    WidgetsBinding.instance.addPersistentFrameCallback((_) {
-                      Navigator.push(
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      Navigator.pushReplacement(
                         context,
                         PageRouteBuilder(
                             pageBuilder:
                                 (context, animation, secondaryAnimation) =>
-                                    const GoToHomeScreen(),
+                                     GoToHomeScreen(),
                             transitionDuration: Duration.zero,
                             reverseTransitionDuration: Duration.zero),
                       );
                     });
                   } else if (state is AuthenticationFailure) {
+                    debugPrint("Giriş başarısız");
                     WidgetsBinding.instance.addPersistentFrameCallback((_) {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text("Login Failed  ${state.error}")));
@@ -202,7 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   GestureDetector(
                     onTap: () async {
-                      print( "Google TIklandı");
+                      print("Google TIklandı");
                       await SignInWithGoogle();
                     },
                     child: Container(

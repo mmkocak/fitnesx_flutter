@@ -6,13 +6,14 @@ import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final FirebaseFirestore  _firebaseStore= FirebaseFirestore.instance;
+  final FirebaseFirestore _firebaseStore = FirebaseFirestore.instance;
   AuthenticationBloc() : super(AuthenticationInitial()) {
     on<GoogleSignInRequested>(_googleSignIn);
     on<FacebookSignInRequested>(_facebookSignIn);
     on<SignOutRequested>(_signOut);
     on<EmailSignInRequested>(_emailSignIn);
     on<EmailSignUpRequested>(_emailSignUp);
+    
   }
 
 // Googlea
@@ -34,7 +35,8 @@ class AuthenticationBloc
       );
       final UserCredential userCredential =
           await _firebaseAuth.signInWithCredential(credential);
-      emit(AuthenticationAuthenticated(userCredential.user!));
+    final String? firstname = await _fetchFirstName(userCredential.user!.uid);
+      emit(AuthenticationAuthenticated(userCredential.user!, firstname));
     } catch (e) {
       emit(AuthenticationFailure(e.toString()));
     }
@@ -51,7 +53,9 @@ class AuthenticationBloc
             loginResult.accessToken!.tokenString);
         final UserCredential userCredential =
             await _firebaseAuth.signInWithCredential(credential);
-        emit(AuthenticationAuthenticated(userCredential.user!));
+                    final String? firstname = await _fetchFirstName(userCredential.user!.uid);
+
+        emit(AuthenticationAuthenticated(userCredential.user!, firstname));
       } else {
         emit(AuthenticationUnAuthenticated());
       }
@@ -83,17 +87,20 @@ class AuthenticationBloc
       final UserCredential userCredential =
           await _firebaseAuth.createUserWithEmailAndPassword(
               email: event.email, password: event.password);
-              await _saveuserToFireStore(userCredential.user, event.firstname, event.lastname);
+      await _saveuserToFireStore(
+          userCredential.user, event.firstname, event.lastname);
       await userCredential.user!
-          .updateDisplayName("${event.firstname} ${event.lastname}}");
+          .updateDisplayName("${event.firstname} ${event.lastname}");
       emit(AuthenticationAuthenticated(userCredential.user!));
     } catch (e) {
-       print("Sign Up Error: $e"); 
-      AuthenticationFailure(e.toString());
+      debugPrint("Sign Up Error: $e");
+      emit( AuthenticationFailure(e.toString()));
     }
   }
-  Future<void> _saveuserToFireStore(User? user, [String?  firstname, String? lastname]) async{
-    if(user != null){
+
+  Future<void> _saveuserToFireStore(User? user,
+      [String? firstname, String? lastname]) async {
+    if (user != null) {
       await _firebaseStore.collection('users').doc(user.uid).set({
         "uid": user.uid,
         "email": user.email,
@@ -103,6 +110,25 @@ class AuthenticationBloc
       });
     }
   }
+  // firstName
+  Future<String?> _fetchFirstName(String uid) async {
+  try {
+    final userDoc = await _firebaseStore.collection('users').doc(uid).get();
+
+    if (userDoc.exists) {
+      final firstname = userDoc.data()?['firstname'];
+      print("Fetched firstname from Firebase: $firstname"); // Kontrol için eklendi
+      return firstname;
+    } else {
+      print("User document does not exist.");
+      return null;
+    }
+  } catch (e) {
+    print("Error fetching user document: $e");
+    return null;
+  }
+}
+
   // SigOut
 
   Future<void> _signOut(
