@@ -35,8 +35,7 @@ class AuthenticationBloc
       );
       final UserCredential userCredential =
           await _firebaseAuth.signInWithCredential(credential);
-    final String? firstname = await _fetchFirstName(userCredential.user!.uid);
-      emit(AuthenticationAuthenticated(userCredential.user!, firstname));
+      emit(AuthenticationAuthenticated(userCredential.user!));
     } catch (e) {
       emit(AuthenticationFailure(e.toString()));
     }
@@ -53,9 +52,8 @@ class AuthenticationBloc
             loginResult.accessToken!.tokenString);
         final UserCredential userCredential =
             await _firebaseAuth.signInWithCredential(credential);
-                    final String? firstname = await _fetchFirstName(userCredential.user!.uid);
 
-        emit(AuthenticationAuthenticated(userCredential.user!, firstname));
+        emit(AuthenticationAuthenticated(userCredential.user!));
       } else {
         emit(AuthenticationUnAuthenticated());
       }
@@ -110,25 +108,7 @@ class AuthenticationBloc
       });
     }
   }
-  // firstName
-  Future<String?> _fetchFirstName(String uid) async {
-  try {
-    final userDoc = await _firebaseStore.collection('users').doc(uid).get();
-
-    if (userDoc.exists) {
-      final firstname = userDoc.data()?['firstname'];
-      print("Fetched firstname from Firebase: $firstname"); // Kontrol için eklendi
-      return firstname;
-    } else {
-      print("User document does not exist.");
-      return null;
-    }
-  } catch (e) {
-    print("Error fetching user document: $e");
-    return null;
-  }
-}
-
+  
   // SigOut
 
   Future<void> _signOut(
