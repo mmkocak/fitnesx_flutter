@@ -1,0 +1,167 @@
+Date : 2024-11-07 01:22:10
+Directory : d:\fitnesX\fitnesx_flutter
+Total : 72 files,  3269 codes, 180 comments, 269 blanks, all 3718 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Dart       |         44 |      2,726 |         69 |        197 |      2,992 |
+| JSON       |          5 |        235 |          0 |          3 |        238 |
+| XML        |         10 |        140 |         53 |         10 |        203 |
+| Gradle     |          3 |         72 |         10 |         15 |         97 |
+| YAML       |          2 |         36 |         31 |         21 |         88 |
+| HTML       |          1 |         19 |         15 |          5 |         39 |
+| Swift      |          2 |         19 |          2 |          6 |         27 |
+| Markdown   |          2 |         13 |          0 |          9 |         22 |
+| Properties |          2 |          8 |          0 |          2 |         10 |
+| C++        |          1 |          1 |          0 |          1 |          2 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                  | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                     |         72 |      3,269 |        180 |        269 |      3,718 |
+| . (Files)                                                                                                             |          4 |         47 |         31 |         28 |        106 |
+| android                                                                                                               |         14 |        213 |         61 |         25 |        299 |
+| android (Files)                                                                                                       |          3 |         41 |          2 |          9 |         52 |
+| android\app                                                                                                           |         10 |        167 |         59 |         15 |        241 |
+| android\app (Files)                                                                                                   |          2 |         88 |          8 |          7 |        103 |
+| android\app\src                                                                                                       |          8 |         79 |         51 |          8 |        138 |
+| android\app\src\debug                                                                                                 |          1 |          3 |          4 |          1 |          8 |
+| android\app\src\main                                                                                                  |          6 |         73 |         43 |          6 |        122 |
+| android\app\src\main (Files)                                                                                          |          1 |         41 |         11 |          0 |         52 |
+| android\app\src\main\res                                                                                              |          5 |         32 |         32 |          6 |         70 |
+| android\app\src\main\res\drawable                                                                                     |          1 |          4 |          7 |          2 |         13 |
+| android\app\src\main\res\drawable-v21                                                                                 |          1 |          4 |          7 |          2 |         13 |
+| android\app\src\main\res\values                                                                                       |          2 |         15 |          9 |          1 |         25 |
+| android\app\src\main\res\values-night                                                                                 |          1 |          9 |          9 |          1 |         19 |
+| android\app\src\profile                                                                                               |          1 |          3 |          4 |          1 |          8 |
+| android\gradle                                                                                                        |          1 |          5 |          0 |          1 |          6 |
+| android\gradle\wrapper                                                                                                |          1 |          5 |          0 |          1 |          6 |
+| ios                                                                                                                   |          8 |        229 |          4 |         13 |        246 |
+| ios\Runner                                                                                                            |          7 |        222 |          2 |          9 |        233 |
+| ios\Runner (Files)                                                                                                    |          2 |         13 |          0 |          3 |         16 |
+| ios\RunnerTests                                                                                                       |          1 |          7 |          2 |          4 |         13 |
+| ios\Runner\Assets.xcassets                                                                                            |          3 |        148 |          0 |          4 |        152 |
+| ios\Runner\Assets.xcassets\AppIcon.appiconset                                                                         |          1 |        122 |          0 |          1 |        123 |
+| ios\Runner\Assets.xcassets\LaunchImage.imageset                                                                       |          2 |         26 |          0 |          3 |         29 |
+| ios\Runner\Base.lproj                                                                                                 |          2 |         61 |          2 |          2 |         65 |
+| lib                                                                                                                   |         43 |      2,712 |         59 |        190 |      2,961 |
+| lib (Files)                                                                                                           |          3 |        125 |         27 |         13 |        165 |
+| lib\core                                                                                                              |          8 |        220 |          6 |         52 |        278 |
+| lib\core\bloc                                                                                                         |          8 |        220 |          6 |         52 |        278 |
+| lib\core\bloc\auth                                                                                                    |          3 |        169 |          6 |         24 |        199 |
+| lib\core\bloc\passowrd_visibility.dart                                                                                |          2 |         11 |          0 |          4 |         15 |
+| lib\core\bloc\register_container                                                                                      |          3 |         40 |          0 |         24 |         64 |
+| lib\feature                                                                                                           |         32 |      2,367 |         26 |        125 |      2,518 |
+| lib\feature\screen                                                                                                    |         22 |      1,937 |          2 |         85 |      2,024 |
+| lib\feature\screen\dashboard                                                                                          |          1 |          0 |          0 |          1 |          1 |
+| lib\feature\screen\dashboard\dashboard                                                                                |          1 |          0 |          0 |          1 |          1 |
+| lib\feature\screen\go_to_home                                                                                         |          1 |         92 |          0 |          5 |         97 |
+| lib\feature\screen\login                                                                                              |          1 |        304 |          0 |         10 |        314 |
+| lib\feature\screen\onboarding                                                                                         |          4 |        324 |          0 |         17 |        341 |
+| lib\feature\screen\register                                                                                           |         13 |        997 |          2 |         42 |      1,041 |
+| lib\feature\screen\register\account_create_page                                                                       |          2 |        327 |          2 |          8 |        337 |
+| lib\feature\screen\register\account_create_page (Files)                                                               |          1 |        292 |          2 |          6 |        300 |
+| lib\feature\screen\register\account_create_page\extension                                                             |          1 |         35 |          0 |          2 |         37 |
+| lib\feature\screen\register\profil_completion_page                                                                    |          9 |        438 |          0 |         26 |        464 |
+| lib\feature\screen\register\profil_completion_page (Files)                                                            |          1 |        152 |          0 |          4 |        156 |
+| lib\feature\screen\register\profil_completion_page\cubit                                                              |          2 |         14 |          0 |          2 |         16 |
+| lib\feature\screen\register\profil_completion_page\extension                                                          |          1 |         40 |          0 |          3 |         43 |
+| lib\feature\screen\register\profil_completion_page\mixin                                                              |          1 |         26 |          0 |          4 |         30 |
+| lib\feature\screen\register\profil_completion_page\widgets                                                            |          4 |        206 |          0 |         13 |        219 |
+| lib\feature\screen\register\register_page_tree                                                                        |          2 |        232 |          0 |          8 |        240 |
+| lib\feature\screen\register\register_page_tree (Files)                                                                |          1 |        123 |          0 |          4 |        127 |
+| lib\feature\screen\register\register_page_tree\extension                                                              |          1 |        109 |          0 |          4 |        113 |
+| lib\feature\screen\splash                                                                                             |          1 |        112 |          0 |          5 |        117 |
+| lib\feature\screen\welcome                                                                                            |          1 |        108 |          0 |          5 |        113 |
+| lib\feature\utils                                                                                                     |         10 |        430 |         24 |         40 |        494 |
+| lib\feature\utils\common                                                                                              |          1 |         20 |         20 |         12 |         52 |
+| lib\feature\utils\theme                                                                                               |          1 |         13 |          0 |          1 |         14 |
+| lib\feature\utils\widgets                                                                                             |          8 |        397 |          4 |         27 |        428 |
+| lib\feature\utils\widgets (Files)                                                                                     |          6 |        332 |          4 |         21 |        357 |
+| lib\feature\utils\widgets\privacyPolicyChackbox                                                                       |          2 |         65 |          0 |          6 |         71 |
+| test                                                                                                                  |          1 |         14 |         10 |          7 |         31 |
+| web                                                                                                                   |          2 |         54 |         15 |          6 |         75 |
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                              | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| d:\fitnesX\fitnesx_flutter\README.md                                                                                  | Markdown   |         10 |          0 |          7 |         17 |
+| d:\fitnesX\fitnesx_flutter\analysis_options.yaml                                                                      | YAML       |          3 |         22 |          4 |         29 |
+| d:\fitnesX\fitnesx_flutter\android\app\build.gradle                                                                   | Gradle     |         34 |          8 |          7 |         49 |
+| d:\fitnesX\fitnesx_flutter\android\app\google-services.json                                                           | JSON       |         54 |          0 |          0 |         54 |
+| d:\fitnesX\fitnesx_flutter\android\app\src\debug\AndroidManifest.xml                                                  | XML        |          3 |          4 |          1 |          8 |
+| d:\fitnesX\fitnesx_flutter\android\app\src\main\AndroidManifest.xml                                                   | XML        |         41 |         11 |          0 |         52 |
+| d:\fitnesX\fitnesx_flutter\android\app\src\main\res\drawable-v21\launch_background.xml                                | XML        |          4 |          7 |          2 |         13 |
+| d:\fitnesX\fitnesx_flutter\android\app\src\main\res\drawable\launch_background.xml                                    | XML        |          4 |          7 |          2 |         13 |
+| d:\fitnesX\fitnesx_flutter\android\app\src\main\res\values-night\styles.xml                                           | XML        |          9 |          9 |          1 |         19 |
+| d:\fitnesX\fitnesx_flutter\android\app\src\main\res\values\strings.xml                                                | XML        |          6 |          0 |          1 |          7 |
+| d:\fitnesX\fitnesx_flutter\android\app\src\main\res\values\styles.xml                                                 | XML        |          9 |          9 |          0 |         18 |
+| d:\fitnesX\fitnesx_flutter\android\app\src\profile\AndroidManifest.xml                                                | XML        |          3 |          4 |          1 |          8 |
+| d:\fitnesX\fitnesx_flutter\android\build.gradle                                                                       | Gradle     |         16 |          0 |          3 |         19 |
+| d:\fitnesX\fitnesx_flutter\android\gradle.properties                                                                  | Properties |          3 |          0 |          1 |          4 |
+| d:\fitnesX\fitnesx_flutter\android\gradle\wrapper\gradle-wrapper.properties                                           | Properties |          5 |          0 |          1 |          6 |
+| d:\fitnesX\fitnesx_flutter\android\settings.gradle                                                                    | Gradle     |         22 |          2 |          5 |         29 |
+| d:\fitnesX\fitnesx_flutter\firebase.json                                                                              | JSON       |          1 |          0 |          0 |          1 |
+| d:\fitnesX\fitnesx_flutter\ios\RunnerTests\RunnerTests.swift                                                          | Swift      |          7 |          2 |          4 |         13 |
+| d:\fitnesX\fitnesx_flutter\ios\Runner\AppDelegate.swift                                                               | Swift      |         12 |          0 |          2 |         14 |
+| d:\fitnesX\fitnesx_flutter\ios\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json                                | JSON       |        122 |          0 |          1 |        123 |
+| d:\fitnesX\fitnesx_flutter\ios\Runner\Assets.xcassets\LaunchImage.imageset\Contents.json                              | JSON       |         23 |          0 |          1 |         24 |
+| d:\fitnesX\fitnesx_flutter\ios\Runner\Assets.xcassets\LaunchImage.imageset\README.md                                  | Markdown   |          3 |          0 |          2 |          5 |
+| d:\fitnesX\fitnesx_flutter\ios\Runner\Base.lproj\LaunchScreen.storyboard                                              | XML        |         36 |          1 |          1 |         38 |
+| d:\fitnesX\fitnesx_flutter\ios\Runner\Base.lproj\Main.storyboard                                                      | XML        |         25 |          1 |          1 |         27 |
+| d:\fitnesX\fitnesx_flutter\ios\Runner\Runner-Bridging-Header.h                                                        | C++        |          1 |          0 |          1 |          2 |
+| d:\fitnesX\fitnesx_flutter\lib\core\bloc\auth\authentication_bloc.dart                                                | Dart       |        123 |          6 |         12 |        141 |
+| d:\fitnesX\fitnesx_flutter\lib\core\bloc\auth\authentication_event.dart                                               | Dart       |         24 |          0 |          5 |         29 |
+| d:\fitnesX\fitnesx_flutter\lib\core\bloc\auth\authentication_state.dart                                               | Dart       |         22 |          0 |          7 |         29 |
+| d:\fitnesX\fitnesx_flutter\lib\core\bloc\passowrd_visibility.dart\password_visibility_bloc.dart                       | Dart       |          9 |          0 |          4 |         13 |
+| d:\fitnesX\fitnesx_flutter\lib\core\bloc\passowrd_visibility.dart\password_visibility_event.dart                      | Dart       |          2 |          0 |          0 |          2 |
+| d:\fitnesX\fitnesx_flutter\lib\core\bloc\register_container\register_tree_bloc.dart                                   | Dart       |         19 |          0 |          6 |         25 |
+| d:\fitnesX\fitnesx_flutter\lib\core\bloc\register_container\register_tree_event.dart                                  | Dart       |          7 |          0 |          6 |         13 |
+| d:\fitnesX\fitnesx_flutter\lib\core\bloc\register_container\register_tree_state.dart                                  | Dart       |         14 |          0 |         12 |         26 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\dashboard\dashboard\dashboard_screen.dart                               | Dart       |          0 |          0 |          1 |          1 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\go_to_home\go_to_home_screen.dart                                       | Dart       |         92 |          0 |          5 |         97 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\login\login_screen.dart                                                 | Dart       |        304 |          0 |         10 |        314 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\onboarding\onboarding_for_page.dart                                     | Dart       |         83 |          0 |          4 |         87 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\onboarding\onboarding_one_page.dart                                     | Dart       |         77 |          0 |          4 |         81 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\onboarding\onboarding_theree_page.dart                                  | Dart       |         83 |          0 |          4 |         87 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\onboarding\onboarding_two_page.dart                                     | Dart       |         81 |          0 |          5 |         86 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\account_create_page\account_create_screen.dart                 | Dart       |        292 |          2 |          6 |        300 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\account_create_page\extension\handle_authentication_state.dart | Dart       |         35 |          0 |          2 |         37 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\profil_completion_page\cubit\date_cubit.dart                   | Dart       |          7 |          0 |          1 |          8 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\profil_completion_page\cubit\gender_cubit.dart                 | Dart       |          7 |          0 |          1 |          8 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\profil_completion_page\extension\user_register_extension.dart  | Dart       |         40 |          0 |          3 |         43 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\profil_completion_page\mixin\date_mixin.dart                   | Dart       |         26 |          0 |          4 |         30 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\profil_completion_page\profile_completion_screen.dart          | Dart       |        152 |          0 |          4 |        156 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\profil_completion_page\widgets\custom_containerpcs.dart        | Dart       |         37 |          0 |          3 |         40 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\profil_completion_page\widgets\custom_textformfield.dart       | Dart       |         44 |          0 |          3 |         47 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\profil_completion_page\widgets\date_container.dart             | Dart       |         55 |          0 |          3 |         58 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\profil_completion_page\widgets\dropdown_container.dart         | Dart       |         70 |          0 |          4 |         74 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\register_page_tree\extension\register_tree_extension.dart      | Dart       |        109 |          0 |          4 |        113 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\register_page_tree\register_tree_screen.dart                   | Dart       |        123 |          0 |          4 |        127 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\splash\splash_screen.dart                                               | Dart       |        112 |          0 |          5 |        117 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\screen\welcome\welcome_screen.dart                                             | Dart       |        108 |          0 |          5 |        113 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\utils\common\common_imports.dart                                               | Dart       |         20 |         20 |         12 |         52 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\utils\theme\colors.dart                                                        | Dart       |         13 |          0 |          1 |         14 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\custom_complate_profile_textfield.dart                           | Dart       |         47 |          4 |          3 |         54 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\custom_elevetad_button.dart                                      | Dart       |         42 |          0 |          4 |         46 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\custom_gradiant_fab.dart                                         | Dart       |         94 |          0 |          5 |         99 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\custom_linear_purple_container.dart                              | Dart       |         38 |          0 |          2 |         40 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\custom_password_textfield.dart                                   | Dart       |         65 |          0 |          5 |         70 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\custom_textfield.dart                                            | Dart       |         46 |          0 |          2 |         48 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\privacyPolicyChackbox\privacy_policy_chackbox.dart               | Dart       |         60 |          0 |          4 |         64 |
+| d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\privacyPolicyChackbox\privacy_policy_cubit.dart                  | Dart       |          5 |          0 |          2 |          7 |
+| d:\fitnesX\fitnesx_flutter\lib\firebase_options.dart                                                                  | Dart       |         58 |         12 |          5 |         75 |
+| d:\fitnesX\fitnesx_flutter\lib\fitnestx_icons.dart                                                                    | Dart       |         13 |         15 |          4 |         32 |
+| d:\fitnesX\fitnesx_flutter\lib\main.dart                                                                              | Dart       |         54 |          0 |          4 |         58 |
+| d:\fitnesX\fitnesx_flutter\pubspec.yaml                                                                               | YAML       |         33 |          9 |         17 |         59 |
+| d:\fitnesX\fitnesx_flutter\test\widget_test.dart                                                                      | Dart       |         14 |         10 |          7 |         31 |
+| d:\fitnesX\fitnesx_flutter\web\index.html                                                                             | HTML       |         19 |         15 |          5 |         39 |
+| d:\fitnesX\fitnesx_flutter\web\manifest.json                                                                          | JSON       |         35 |          0 |          1 |         36 |
+| Total                                                                                                                 |            |      3,269 |        180 |        269 |      3,718 |
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

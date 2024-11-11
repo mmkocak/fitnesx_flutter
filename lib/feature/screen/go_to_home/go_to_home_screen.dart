@@ -1,5 +1,6 @@
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/dashboard_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class GoToHomeScreen extends StatefulWidget {
@@ -77,9 +78,20 @@ class _GoToHomeScreenState extends State<GoToHomeScreen> {
                     color: AppColors.gray_1,
                   ),
                 ),
-                SizedBox(height: screenHeight * 0.17,),
+                SizedBox(
+                  height: screenHeight * 0.17,
+                ),
                 CustomElevetadButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      DashboardScreen(),
+                              transitionDuration: Duration.zero,
+                              reverseTransitionDuration: Duration.zero),);
+                    },
                     text: "Go To  Home",
                     height: screenHeight * 0.07,
                     width: screenWidth * 0.9)

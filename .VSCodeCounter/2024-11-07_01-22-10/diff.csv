@@ -1,0 +1,17 @@
+"filename", "language", "Dart", "comment", "blank", "total"
+"d:\fitnesX\fitnesx_flutter\lib\core\bloc\auth\authentication_bloc.dart", "Dart", 66, 3, 7, 76
+"d:\fitnesX\fitnesx_flutter\lib\core\bloc\auth\authentication_event.dart", "Dart", 20, 0, 4, 24
+"d:\fitnesX\fitnesx_flutter\lib\core\bloc\auth\authentication_state.dart", "Dart", 9, 0, 1, 10
+"d:\fitnesX\fitnesx_flutter\lib\core\bloc\passowrd_visibility.dart\password_visibility_bloc.dart", "Dart", 9, 0, 4, 13
+"d:\fitnesX\fitnesx_flutter\lib\core\bloc\passowrd_visibility.dart\password_visibility_event.dart", "Dart", 2, 0, 0, 2
+"d:\fitnesX\fitnesx_flutter\lib\feature\screen\dashboard\dashboard\dashboard_screen.dart", "Dart", 0, 0, 1, 1
+"d:\fitnesX\fitnesx_flutter\lib\feature\screen\go_to_home\go_to_home_screen.dart", "Dart", 92, 0, 5, 97
+"d:\fitnesX\fitnesx_flutter\lib\feature\screen\login\login_screen.dart", "Dart", 292, 0, 8, 300
+"d:\fitnesX\fitnesx_flutter\lib\feature\screen\register\account_create_page\account_create_screen.dart", "Dart", 50, 0, 0, 50
+"d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\custom_elevetad_button.dart", "Dart", 0, 0, 1, 1
+"d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\custom_password_textfield.dart", "Dart", 65, 0, 5, 70
+"d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\custom_textfield.dart", "Dart", 2, 0, -1, 1
+"d:\fitnesX\fitnesx_flutter\lib\feature\utils\widgets\privacyPolicyChackbox\privacy_policy_chackbox.dart", "Dart", -3, 0, 0, -3
+"d:\fitnesX\fitnesx_flutter\lib\fitnestx_icons.dart", "Dart", 2, 0, -1, 1
+"d:\fitnesX\fitnesx_flutter\lib\main.dart", "Dart", 4, 0, 0, 4
+"Total", "-", 610, 3, 34, 647
