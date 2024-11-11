@@ -88,7 +88,7 @@ class AuthenticationBloc
       await _saveuserToFireStore(
           userCredential.user, event.firstname, event.lastname);
       await userCredential.user!
-          .updateDisplayName("${event.firstname} ${event.lastname}");
+          .updateDisplayName("${event.firstname.trim()} ${event.lastname.trim()}");
       emit(AuthenticationAuthenticated(userCredential.user!));
     } catch (e) {
       debugPrint("Sign Up Error: $e");

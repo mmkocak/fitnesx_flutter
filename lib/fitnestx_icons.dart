@@ -28,4 +28,6 @@ class Fitnestx {
   static const IconData weightScale_1 = IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData lock = IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData message = IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+    static const IconData notification = IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+
 }
