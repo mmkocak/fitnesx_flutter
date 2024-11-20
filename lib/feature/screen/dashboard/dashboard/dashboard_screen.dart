@@ -1,6 +1,7 @@
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/mixins/build_bubble_mixin.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/chack_container.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/mass_index_container.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/fitnestx_icons.dart';
@@ -109,68 +110,8 @@ class _DashboardScreenState extends State<DashboardScreen>
               SizedBox(
                 height: screenHeight * 0.03,
               ),
-              Container(
-                width: screenWidth * 0.9,
-                height: screenHeight * 0.08,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: <Color>[
-                        Color(0x5092A3FD),
-                        Color(0x509DCEFF),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderRadius: BorderRadius.circular(16)),
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      left: screenWidth * 0.02, right: screenWidth * 0.02),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 7,
-                        child: Text(
-                          "Today Target",
-                          style: TextStyle(
-                              fontFamily: "Poppins",
-                              color: AppColors.blackColor,
-                              fontWeight: FontWeight.w600,
-                              fontSize: screenWidth * 0.04),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: GestureDetector(
-                          onTap: (){
-                           debugPrint("Check buton tıklandı");
-                          },
-                          child: Container(
-                            width: screenWidth * 0.01,
-                            height: screenHeight * 0.04,
-                            decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                    colors: <Color>[
-                                      AppColors.brandColorsOne,
-                                      AppColors.brandColorTwo
-                                    ],
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight),
-                                borderRadius: BorderRadius.circular(14)),
-                            child: Center(
-                                child: Text(
-                              "Check",
-                              style: TextStyle(
-                                  color: AppColors.whiteColor,
-                                  fontSize: screenWidth * 0.04,
-                                  fontFamily: "Poppins"),
-                            )),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              ChackContainer(
+                  screenWidth: screenWidth, screenHeight: screenHeight),
             ],
           ),
         ),
