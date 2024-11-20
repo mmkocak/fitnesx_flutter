@@ -4,7 +4,6 @@ import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/mixins/build_
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/mass_index_container.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/fitnestx_icons.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -82,8 +81,8 @@ class _DashboardScreenState extends State<DashboardScreen> with BuildBubbleMixin
                       ],
                     );
                   }
-                  return Scaffold(
-                    body: Center(child: Text('Please login to continue.')),
+                  return  const Scaffold(
+                    body:  Center(child: Text('Please login to continue.')),
                   );
                 },
               ),
@@ -105,6 +104,7 @@ class _DashboardScreenState extends State<DashboardScreen> with BuildBubbleMixin
                   ],
                 ),
               ),
+              
             ],
           ),
         ),
