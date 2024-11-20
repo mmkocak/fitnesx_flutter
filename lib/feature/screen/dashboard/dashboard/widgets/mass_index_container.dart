@@ -102,6 +102,7 @@ class MassIndexContainer extends StatelessWidget with PieChartSectionDataMixin {
               ),
             ),
           ),
+          SizedBox(width: screenWidth * 0.06,)
         ],
       ),
     );
