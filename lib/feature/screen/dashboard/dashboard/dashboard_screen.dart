@@ -6,7 +6,6 @@ import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/chack
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/mass_index_container.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/fitnestx_icons.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -92,6 +91,7 @@ class _DashboardScreenState extends State<DashboardScreen>
             SizedBox(
               height: screenHeight * 0.03,
             ),
+            // MassIndex Container start
             Padding(
               padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
               child: Stack(
@@ -107,9 +107,11 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ],
               ),
             ),
+            // MassIndex Container finish
             SizedBox(
               height: screenHeight * 0.03,
             ),
+            // Chack Container start
             Padding(
               padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
               child: ChackContainer(
@@ -117,6 +119,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                 screenHeight: screenHeight,
               ),
             ),
+            // Chack Container finish
             SizedBox(
               height: screenHeight * 0.05,
             ),
@@ -135,10 +138,14 @@ class _DashboardScreenState extends State<DashboardScreen>
                 ],
               ),
             ),
+
             SizedBox(
               height: screenHeight * 0.025,
             ),
+            // Activity Container start
             ActivityContainer(screenWidth: screenWidth, screenHeight: screenHeight),
+            // Activity Container finish
+            SizedBox(height: screenHeight * 0.03,),
           ],
           
           ),
