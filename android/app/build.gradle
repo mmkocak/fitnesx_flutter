@@ -11,7 +11,7 @@ plugins {
 android {
     namespace = "com.fitnesx_flutter.fitnesx_flutter"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "25.1.8937393"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
