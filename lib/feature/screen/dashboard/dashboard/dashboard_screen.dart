@@ -1,5 +1,6 @@
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/sleep_card.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/water_intake_card.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/mixins/build_bubble_mixin.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/activity_container.dart';
@@ -14,6 +15,7 @@ class DashboardScreen extends StatefulWidget {
   @override
   _DashboardScreenState createState() => _DashboardScreenState();
 }
+
 class _DashboardScreenState extends State<DashboardScreen>
     with BuildBubbleMixin {
   @override
@@ -21,6 +23,7 @@ class _DashboardScreenState extends State<DashboardScreen>
     double screenHeight = MediaQuery.sizeOf(context).height;
     double screenWidth = MediaQuery.sizeOf(context).width;
     return Scaffold(
+      
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -153,20 +156,48 @@ class _DashboardScreenState extends State<DashboardScreen>
               //Water Intake, Sleep, Calories Container Start
               Container(
                 width: screenWidth * 0.9,
-                
-                
                 child: Column(
                   children: [
                     Row(
                       children: [
                         Expanded(child: WaterIntakeCard()),
-                        Expanded(child: Container()),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(left: screenWidth * 0.04),
+                            child: Column(
+                              children: [
+                               SleepCard(),
+                                SizedBox(
+                                  height: screenHeight * 0.02,
+                                ),
+                                Container(
+                                  height: screenHeight * 0.21,
+                                  width: screenWidth * 0.4,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: AppColors.whiteColor,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        blurRadius: 5,
+                                        spreadRadius: 2,
+                                        offset: Offset(0, 3),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: screenHeight * 0.03,),
+              SizedBox(
+                height: screenHeight * 0.03,
+              ),
             ],
           ),
         ),

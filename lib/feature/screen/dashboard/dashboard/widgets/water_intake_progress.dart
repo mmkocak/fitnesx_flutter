@@ -28,7 +28,7 @@ class WaterIntakeProgress extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 gradient: LinearGradient(
-                  colors: <Color>[AppColors.brandColorTwo, AppColors.brandColorsOne],
+                  colors: <Color>[AppColors.brandColorsOne, AppColors.brandColorTwo],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
