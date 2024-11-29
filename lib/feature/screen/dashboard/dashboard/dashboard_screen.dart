@@ -1,5 +1,6 @@
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/calories_card.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/sleep_card.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/water_intake_card.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/mixins/build_bubble_mixin.dart';
@@ -170,22 +171,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                                 SizedBox(
                                   height: screenHeight * 0.02,
                                 ),
-                                Container(
-                                  height: screenHeight * 0.21,
-                                  width: screenWidth * 0.4,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: AppColors.whiteColor,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.grey.withOpacity(0.2),
-                                        blurRadius: 5,
-                                        spreadRadius: 2,
-                                        offset: Offset(0, 3),
-                                      )
-                                    ],
-                                  ),
-                                ),
+                               CaloriesCard(),
                               ],
                             ),
                           ),
