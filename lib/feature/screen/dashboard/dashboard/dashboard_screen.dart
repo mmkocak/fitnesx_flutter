@@ -1,5 +1,6 @@
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
+import 'package:fitnesx_flutter/core/cubit/workout_progress_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/calories_card.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/sleep_card.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/water_intake_card.dart';
@@ -7,6 +8,7 @@ import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/mixins/build_
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/activity_container.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/chack_container.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/mass_index_container.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/workout_widget.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/fitnestx_icons.dart';
 
@@ -21,10 +23,9 @@ class _DashboardScreenState extends State<DashboardScreen>
     with BuildBubbleMixin {
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.sizeOf(context).height;
-    double screenWidth = MediaQuery.sizeOf(context).width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -89,9 +90,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                       ],
                     );
                   }
-                  return const Scaffold(
-                    body: Center(child: Text('Please login to continue.')),
-                  );
+                  return const Center(child: Text('Please login to continue.'));
                 },
               ),
               SizedBox(
@@ -167,11 +166,11 @@ class _DashboardScreenState extends State<DashboardScreen>
                             padding: EdgeInsets.only(left: screenWidth * 0.04),
                             child: Column(
                               children: [
-                               SleepCard(),
+                                SleepCard(),
                                 SizedBox(
                                   height: screenHeight * 0.02,
                                 ),
-                               CaloriesCard(),
+                                CaloriesCard(),
                               ],
                             ),
                           ),
@@ -181,9 +180,74 @@ class _DashboardScreenState extends State<DashboardScreen>
                   ],
                 ),
               ),
+              //Water Intake, Sleep, Calories Container finish
               SizedBox(
                 height: screenHeight * 0.03,
               ),
+              //Workout Progress row start
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
+                child: BlocBuilder<WorkoutProgressCubit, String?>(
+                  builder: (context, state) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Workout Progress",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: screenWidth * 0.05,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Container(
+                          height: screenHeight * 0.04,
+                          width: screenHeight * 0.1,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            gradient: LinearGradient(
+                              colors: <Color>[
+                                AppColors.brandColorsOne,
+                                AppColors.brandColorTwo
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            ),
+                          ),
+                          child: Center(
+                            child: DropdownButton<String>(
+                              iconSize: screenWidth * 0.07,
+                              iconEnabledColor: AppColors.whiteColor,
+                              iconDisabledColor: AppColors.whiteColor,
+                              value: state,
+                              items: ['Weekly', 'Monthly']
+                                  .map((String workout) => DropdownMenuItem(
+                                      value: workout,
+                                      child: Text(
+                                        workout,
+                                        style: TextStyle(
+                                          color: AppColors.whiteColor,
+                                            fontFamily: "Poppins",
+                                            fontSize: screenWidth * 0.03),
+                                      )))
+                                  .toList(),
+                              onChanged: (String? workout) {
+                                context
+                                    .read<WorkoutProgressCubit>()
+                                    .selectWorkout(workout!);
+                              },
+                            ),
+                          ),
+                        )
+                      ],
+                    );
+                  },
+                ),
+              
+              ),
+              SizedBox(
+                height: screenHeight * 0.03,
+              ),
+              WorkoutWidget(),
             ],
           ),
         ),
