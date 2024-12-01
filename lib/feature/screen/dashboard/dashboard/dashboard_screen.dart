@@ -225,7 +225,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                                       child: Text(
                                         workout,
                                         style: TextStyle(
-                                          color: AppColors.whiteColor,
+                                            color: AppColors.whiteColor,
                                             fontFamily: "Poppins",
                                             fontSize: screenWidth * 0.03),
                                       )))
@@ -242,12 +242,44 @@ class _DashboardScreenState extends State<DashboardScreen>
                     );
                   },
                 ),
-              
               ),
+              // Workout Progres finish
               SizedBox(
                 height: screenHeight * 0.03,
               ),
+              // Workout Start
               WorkoutWidget(),
+              // workout finish
+              SizedBox(
+                height: screenHeight * 0.03,
+              ),
+              // Latest Workout Start
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Latest Workout",
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: screenWidth * 0.05,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    GestureDetector(
+                      child: Text("See More",  style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.bold,
+                          fontSize: screenWidth * 0.035,
+                          color: AppColors.gray_2
+                        ),),
+                    ),
+                  ],
+                ),
+              ),
+              // Latest Workout finish
+              SizedBox(height: screenHeight * 0.03,),
             ],
           ),
         ),
