@@ -1,5 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:equatable/equatable.dart';
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
+
 
 part 'register_tree_event.dart';
 part 'register_tree_state.dart';

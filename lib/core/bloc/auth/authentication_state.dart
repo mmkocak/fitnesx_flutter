@@ -1,4 +1,3 @@
-import 'package:equatable/equatable.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 abstract class AuthenticationState extends Equatable{

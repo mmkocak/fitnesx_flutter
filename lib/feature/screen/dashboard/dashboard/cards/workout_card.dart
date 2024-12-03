@@ -93,27 +93,24 @@ class WorkoutCard extends StatelessWidget {
               width: screenWidth * 0.08,
               height: screenHeight * 0.08,
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  colors: <Color>[AppColors.purple_1, AppColors.purple_2],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-                border: Border.all(width: 1.0, color: Colors.transparent)
-              ),
+                  shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    colors: <Color>[AppColors.purple_1, AppColors.purple_2],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  border: Border.all(width: 1.0, color: Colors.transparent)),
               child: Container(
-                 width: screenWidth * 0.04,
-              height: screenHeight * 0.04,
+                width: screenWidth * 0.04,
+                height: screenHeight * 0.04,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: AppColors.whiteColor,
                 ),
                 child: Center(
-                  child: Icon(Icons.arrow_forward_ios, color: Colors.purple)
-                ),
+                    child: Icon(Icons.arrow_forward_ios, color: Colors.purple)),
               ),
             ),
-            
           ],
         ),
       ),

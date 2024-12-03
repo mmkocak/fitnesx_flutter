@@ -1,4 +1,3 @@
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/workout_card.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class WorkoutList extends StatelessWidget {
@@ -25,13 +24,13 @@ class WorkoutList extends StatelessWidget {
       "image": "assets/images/Character.png",
     },
   ];
- WorkoutList({ Key? key }) : super(key: key);
-  
+  WorkoutList({Key? key}) : super(key: key);
+
   @override
-  Widget build(BuildContext context){
-    return  ListView.builder(
+  Widget build(BuildContext context) {
+    return ListView.builder(
       padding: const EdgeInsets.all(16.0),
-       shrinkWrap: true, 
+      shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       itemCount: 3,
       itemBuilder: (context, index) {

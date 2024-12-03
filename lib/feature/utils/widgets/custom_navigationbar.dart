@@ -1,7 +1,5 @@
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/dashboard_screen.dart';
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 
 class CustomNavigationbar extends StatefulWidget {
   const CustomNavigationbar({super.key});
@@ -18,7 +16,7 @@ class _NavbarRootsState extends State<CustomNavigationbar> {
     // Messages Screen
     DashboardScreen(),
     // Schedule Screen
-  Container(),
+    Container(),
     // Settings Screen
     Container(),
   ];

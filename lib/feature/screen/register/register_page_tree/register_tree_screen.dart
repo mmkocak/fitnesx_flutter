@@ -1,7 +1,4 @@
-import 'package:fitnesx_flutter/core/bloc/register_container/register_tree_bloc.dart';
-import 'package:fitnesx_flutter/feature/screen/login/login_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fitnesx_flutter/feature/screen/register/register_page_tree/extension/register_tree_extension.dart';
 class RegisterTreeScreen extends StatelessWidget {
   const RegisterTreeScreen({Key? key}) : super(key: key);
 

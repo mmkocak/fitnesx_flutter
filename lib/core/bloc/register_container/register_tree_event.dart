@@ -1,6 +1,4 @@
 part of "register_tree_bloc.dart";
- 
-
 
 abstract class RegisterTreeEvent extends Equatable {
   const RegisterTreeEvent();

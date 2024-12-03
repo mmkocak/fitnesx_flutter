@@ -1,13 +1,4 @@
-import 'dart:math';
-
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_event.dart';
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
-import 'package:fitnesx_flutter/feature/screen/go_to_home/go_to_home_screen.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/custom_textformfield.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fitnesx_flutter/feature/utils/widgets/custom_password_textfield.dart';
-import 'package:fitnesx_flutter/fitnestx_icons.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -85,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         PageRouteBuilder(
                             pageBuilder:
                                 (context, animation, secondaryAnimation) =>
-                                     GoToHomeScreen(),
+                                    GoToHomeScreen(),
                             transitionDuration: Duration.zero,
                             reverseTransitionDuration: Duration.zero),
                       );

@@ -24,7 +24,11 @@ class SleepCard extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding:  EdgeInsets.only(top: screenHeight * 0.03, left: screenWidth * 0.03, right: screenWidth * 0.03,),
+        padding: EdgeInsets.only(
+          top: screenHeight * 0.03,
+          left: screenWidth * 0.03,
+          right: screenWidth * 0.03,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

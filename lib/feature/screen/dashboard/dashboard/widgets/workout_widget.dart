@@ -1,6 +1,4 @@
-import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
-import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/material.dart';
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class WorkoutWidget extends StatefulWidget {
   const WorkoutWidget({super.key});

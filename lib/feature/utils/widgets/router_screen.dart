@@ -1,7 +1,4 @@
-import 'package:fitnesx_flutter/bottom_navigation_icons.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/dashboard_screen.dart';
-import 'package:fitnesx_flutter/feature/utils/theme/colors.dart';
-import 'package:flutter/material.dart';
+import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class RouterScreen extends StatefulWidget {
   @override
@@ -20,7 +17,6 @@ class _RouterScreenState extends State<RouterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(

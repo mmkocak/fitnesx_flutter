@@ -1,11 +1,10 @@
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/time_update_row.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class TimeUpdates extends StatelessWidget {
-const TimeUpdates({ Key? key }) : super(key: key);
+  const TimeUpdates({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

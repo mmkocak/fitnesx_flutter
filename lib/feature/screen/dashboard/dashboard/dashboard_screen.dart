@@ -1,17 +1,4 @@
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
-import 'package:fitnesx_flutter/core/cubit/workout_progress_cubit.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/calories_card.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/sleep_card.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/cards/water_intake_card.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/mixins/build_bubble_mixin.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/activity_container.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/chack_container.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/mass_index_container.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/workout_list.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/workout_widget.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fitnesx_flutter/fitnestx_icons.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);

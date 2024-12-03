@@ -65,7 +65,7 @@ class CaloriesCard extends StatelessWidget {
             ),
             Expanded(
               child: Padding(
-                padding:  EdgeInsets.only(bottom: screenHeight * 0.01),
+                padding: EdgeInsets.only(bottom: screenHeight * 0.01),
                 child: Center(
                   child: Container(
                     padding: EdgeInsets.all(6),
@@ -110,7 +110,10 @@ class CaloriesCard extends StatelessWidget {
                             child: Text(
                               textAlign: TextAlign.center,
                               "230 Kcal\n Left",
-                              style: TextStyle(fontFamily: "Poppins", color: AppColors.whiteColor, fontSize: screenWidth * 0.03),
+                              style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  color: AppColors.whiteColor,
+                                  fontSize: screenWidth * 0.03),
                             ),
                           ),
                         ),

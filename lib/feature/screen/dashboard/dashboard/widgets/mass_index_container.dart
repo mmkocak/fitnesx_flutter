@@ -1,6 +1,4 @@
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/mixins/pie_section_mixin.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fl_chart/fl_chart.dart';
 
 class MassIndexContainer extends StatelessWidget with PieChartSectionDataMixin {
   const MassIndexContainer({
@@ -18,19 +16,17 @@ class MassIndexContainer extends StatelessWidget with PieChartSectionDataMixin {
       height: screenHeight * 0.18,
       width: screenWidth * 0.9,
       decoration: BoxDecoration(
-          gradient: const LinearGradient(
-              colors: <Color>[
-                AppColors.brandColorTwo,
-                AppColors.brandColorsOne
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight),
+          gradient: const LinearGradient(colors: <Color>[
+            AppColors.brandColorTwo,
+            AppColors.brandColorsOne
+          ], begin: Alignment.topLeft, end: Alignment.bottomRight),
           borderRadius: BorderRadius.circular(16)),
       child: Row(
         children: [
           Expanded(
             flex: 2,
-            child:Padding(padding: EdgeInsets.only(left: screenWidth * 0.05),
+            child: Padding(
+              padding: EdgeInsets.only(left: screenWidth * 0.05),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +84,6 @@ class MassIndexContainer extends StatelessWidget with PieChartSectionDataMixin {
                 ],
               ),
             ),
-
           ),
           Expanded(
             flex: 1,
@@ -102,7 +97,9 @@ class MassIndexContainer extends StatelessWidget with PieChartSectionDataMixin {
               ),
             ),
           ),
-          SizedBox(width: screenWidth * 0.06,)
+          SizedBox(
+            width: screenWidth * 0.06,
+          )
         ],
       ),
     );

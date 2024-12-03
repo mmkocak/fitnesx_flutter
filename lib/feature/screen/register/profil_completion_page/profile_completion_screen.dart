@@ -1,14 +1,4 @@
-
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/extension/user_register_extension.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/mixin/date_mixin.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/custom_containerpcs.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/custom_textformfield.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/date_container.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/widgets/dropdown_container.dart';
-import 'package:fitnesx_flutter/feature/screen/register/register_page_tree/register_tree_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fitnesx_flutter/fitnestx_icons.dart';
 
 class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
   final TextEditingController _weightController = TextEditingController();
@@ -140,7 +130,7 @@ class ProfileCompletionScreen extends StatelessWidget with DateTimePicker {
                       context.SaveProfileData(
                           weight: _weightController.text,
                           height: _heightController.text,
-                          nextpage: const  RegisterTreeScreen());
+                          nextpage: const RegisterTreeScreen());
                     },
                     text: "NEXT",
                     height: screenHeight * 0.07,

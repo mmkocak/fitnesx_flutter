@@ -1,5 +1,3 @@
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/profile_completion_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 extension AuthenticationStateHundler on AuthenticationState {

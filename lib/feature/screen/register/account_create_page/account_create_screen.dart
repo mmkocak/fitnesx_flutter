@@ -1,10 +1,4 @@
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_event.dart';
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
-import 'package:fitnesx_flutter/feature/screen/login/login_screen.dart';
-import 'package:fitnesx_flutter/feature/screen/register/account_create_page/extension/handle_authentication_state.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fitnesx_flutter/fitnestx_icons.dart';
 
 class AccounCreateScreen extends StatefulWidget {
   const AccounCreateScreen({super.key});
@@ -81,7 +75,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                   child: Form(
                     child: Column(
                       children: [
-                         CustomTextfield(
+                        CustomTextfield(
                           controller: _firstnameController,
                           hinText: "First Name",
                           icons: Icons.person_outline_outlined,
@@ -89,7 +83,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                         SizedBox(
                           height: screenWidth * 0.04,
                         ),
-                         CustomTextfield(
+                        CustomTextfield(
                           controller: _lastnameController,
                           hinText: "Last Name",
                           icons: Icons.person_outline_outlined,
@@ -97,7 +91,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                         SizedBox(
                           height: screenWidth * 0.04,
                         ),
-                         CustomTextfield(
+                        CustomTextfield(
                           controller: _emailController,
                           hinText: "Email",
                           icons: Icons.email_outlined,
@@ -105,7 +99,7 @@ class _AccounCreateScreenState extends State<AccounCreateScreen> {
                         SizedBox(
                           height: screenWidth * 0.04,
                         ),
-                         CustomTextfield(
+                        CustomTextfield(
                           controller: _passwordController,
                           hinText: "Password",
                           icons: Fitnestx.lock,

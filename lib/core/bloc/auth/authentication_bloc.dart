@@ -1,6 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_event.dart';
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class AuthenticationBloc
@@ -13,7 +10,6 @@ class AuthenticationBloc
     on<SignOutRequested>(_signOut);
     on<EmailSignInRequested>(_emailSignIn);
     on<EmailSignUpRequested>(_emailSignUp);
-    
   }
 
 // Googlea
@@ -87,12 +83,12 @@ class AuthenticationBloc
               email: event.email, password: event.password);
       await _saveuserToFireStore(
           userCredential.user, event.firstname, event.lastname);
-      await userCredential.user!
-          .updateDisplayName("${event.firstname.trim()} ${event.lastname.trim()}");
+      await userCredential.user!.updateDisplayName(
+          "${event.firstname.trim()} ${event.lastname.trim()}");
       emit(AuthenticationAuthenticated(userCredential.user!));
     } catch (e) {
       debugPrint("Sign Up Error: $e");
-      emit( AuthenticationFailure(e.toString()));
+      emit(AuthenticationFailure(e.toString()));
     }
   }
 
@@ -108,7 +104,7 @@ class AuthenticationBloc
       });
     }
   }
-  
+
   // SigOut
 
   Future<void> _signOut(

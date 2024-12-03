@@ -1,9 +1,5 @@
 part of 'register_tree_bloc.dart';
 
-
-
-
-
 abstract class RegisterTreeState extends Equatable {
   const RegisterTreeState();
 

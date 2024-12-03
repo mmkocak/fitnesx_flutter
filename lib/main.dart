@@ -1,10 +1,3 @@
-import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
-import 'package:fitnesx_flutter/core/bloc/passowrd_visibility.dart/password_visibility_bloc.dart';
-import 'package:fitnesx_flutter/core/bloc/register_container/register_tree_bloc.dart';
-import 'package:fitnesx_flutter/core/cubit/workout_progress_cubit.dart';
-import 'package:fitnesx_flutter/feature/screen/login/login_screen.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/date_cubit.dart';
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/firebase_options.dart';
 
@@ -34,26 +27,26 @@ class fitnesX extends StatelessWidget {
         BlocProvider(
           create: (context) => GenderCubit(),
         ),
-         BlocProvider(
+        BlocProvider(
           create: (context) => DateCubit(),
         ),
         BlocProvider(
           create: (context) => AuthenticationBloc(),
         ),
-         BlocProvider<RegisterTreeBloc>(
+        BlocProvider<RegisterTreeBloc>(
           create: (context) => RegisterTreeBloc(),
         ),
-         BlocProvider(
+        BlocProvider(
           create: (context) => PasswordVisibilityBloc(),
         ),
-          BlocProvider(
+        BlocProvider(
           create: (context) => WorkoutProgressCubit(),
         ),
       ],
       child: MaterialApp(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,
-        home:  LoginScreen(),
+        home: LoginScreen(),
       ),
     );
   }

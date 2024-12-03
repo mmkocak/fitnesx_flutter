@@ -1,5 +1,3 @@
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/time_updates.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/water_intake_progress.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class WaterIntakeCard extends StatelessWidget {

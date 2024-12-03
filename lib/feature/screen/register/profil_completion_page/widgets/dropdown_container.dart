@@ -1,6 +1,4 @@
-import 'package:fitnesx_flutter/feature/screen/register/profil_completion_page/cubit/gender_cubit.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fitnesx_flutter/fitnestx_icons.dart';
 
 class DropdownDontainerWidget extends StatelessWidget {
   const DropdownDontainerWidget({

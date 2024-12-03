@@ -1,5 +1,3 @@
-import 'package:fitnesx_flutter/core/bloc/passowrd_visibility.dart/password_visibility_bloc.dart';
-import 'package:fitnesx_flutter/core/bloc/passowrd_visibility.dart/password_visibility_event.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class CustomPasswordTextfield extends StatelessWidget {
