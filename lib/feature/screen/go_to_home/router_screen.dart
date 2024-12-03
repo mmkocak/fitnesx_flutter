@@ -24,14 +24,12 @@ class _RouterScreenState extends State<RouterScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: _pages[_currentIndex],
       bottomNavigationBar: Stack(
         clipBehavior: Clip.none,
         children: [
           // BottomNavigationBar
           BottomNavigationBar(
-            
             showSelectedLabels: false,
             showUnselectedLabels: false,
             currentIndex: _currentIndex,
@@ -49,7 +47,6 @@ class _RouterScreenState extends State<RouterScreen> {
                 label: "Home",
               ),
               BottomNavigationBarItem(
-                
                 icon: Padding(
                   padding: EdgeInsets.only(right: screenWidth * 0.0),
                   child: _buildGradientIcon(BottomNavigation.activity, 1),
@@ -57,9 +54,8 @@ class _RouterScreenState extends State<RouterScreen> {
                 label: "Activity",
               ),
               BottomNavigationBarItem(
-
                 icon: Padding(
-                  padding:  EdgeInsets.only(left: screenWidth * 0.0),
+                  padding: EdgeInsets.only(left: screenWidth * 0.0),
                   child: _buildGradientIcon(BottomNavigation.camera, 2),
                 ),
                 label: "Camera",
@@ -70,7 +66,7 @@ class _RouterScreenState extends State<RouterScreen> {
               ),
             ],
           ),
-          
+
           Positioned(
             bottom: 30, // Adjusted bottom position to avoid overlapping
             left: screenWidth / 2 - 35, // Center it horizontally
@@ -82,7 +78,10 @@ class _RouterScreenState extends State<RouterScreen> {
                 height: 70,
                 width: 70,
                 decoration: BoxDecoration(
-                  color: Colors.blue,
+                  gradient: LinearGradient(colors: <Color>[
+                    AppColors.brandColorTwo,
+                    AppColors.brandColorsOne
+                  ], begin: Alignment.topLeft, end: Alignment.bottomRight),
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
