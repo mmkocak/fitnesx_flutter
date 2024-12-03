@@ -1,6 +1,7 @@
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_bloc.dart';
 import 'package:fitnesx_flutter/core/bloc/auth/authentication_state.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/dashboard_screen.dart';
+import 'package:fitnesx_flutter/feature/screen/go_to_home/router_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class GoToHomeScreen extends StatefulWidget {
@@ -88,7 +89,7 @@ class _GoToHomeScreenState extends State<GoToHomeScreen> {
                           PageRouteBuilder(
                               pageBuilder:
                                   (context, animation, secondaryAnimation) =>
-                                      DashboardScreen(),
+                                      RouterScreen(),
                               transitionDuration: Duration.zero,
                               reverseTransitionDuration: Duration.zero),);
                     },

@@ -8,9 +8,13 @@ import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/mixins/build_
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/activity_container.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/chack_container.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/mass_index_container.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/workout_list.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/workout_widget.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
+import 'package:fitnesx_flutter/feature/utils/widgets/custom_navigationbar.dart';
 import 'package:fitnesx_flutter/fitnestx_icons.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -26,6 +30,7 @@ class _DashboardScreenState extends State<DashboardScreen>
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+     //bottomNavigationBar: CustomNavigationbar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -268,18 +273,28 @@ class _DashboardScreenState extends State<DashboardScreen>
                       ),
                     ),
                     GestureDetector(
-                      child: Text("See More",  style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.bold,
-                          fontSize: screenWidth * 0.035,
-                          color: AppColors.gray_2
-                        ),),
-                    ),
+                      onTap: () {
+                        // Implement your see all functionality here
+                      },
+                      child: Text(
+                        "See All",
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: screenWidth * 0.03,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.brandColorsOne),
+                      ),
+                    )
                   ],
                 ),
               ),
-              // Latest Workout finish
-              SizedBox(height: screenHeight * 0.03,),
+              // Latest Workout Finish
+              SizedBox(
+                height: screenHeight * 0.03,
+              ),
+              // workout list
+              WorkoutList()
+              // workout list finish
             ],
           ),
         ),
