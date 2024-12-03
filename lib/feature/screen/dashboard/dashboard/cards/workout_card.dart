@@ -17,6 +17,8 @@ class WorkoutCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.sizeOf(context).width;
+    double screenHeight = MediaQuery.sizeOf(context).height;
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -30,16 +32,15 @@ class WorkoutCard extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(screenWidth * 0.03),
         child: Row(
           children: [
-            
             CircleAvatar(
               radius: 30,
               backgroundImage: AssetImage(image),
               backgroundColor: AppColors.brandColorTwo,
             ),
-            SizedBox(width: 16),
+            SizedBox(width: screenWidth * 0.034),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,30 +48,72 @@ class WorkoutCard extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: screenWidth * 0.04,
                       fontWeight: FontWeight.bold,
                       color: Colors.black87,
                     ),
                   ),
-                  SizedBox(height: 4),
+                  SizedBox(height: screenHeight * 0.01),
                   Text(
                     "$calories | $time",
                     style: TextStyle(
-                      fontSize: 14,
+                      fontSize: screenWidth * 0.03,
                       color: Colors.grey,
                     ),
                   ),
-                  SizedBox(height: 8),
-                  LinearProgressIndicator(
-
-                    value: progress,
-                    color: Colors.purple,
-                    backgroundColor: Colors.grey[300],
+                  SizedBox(height: screenHeight * 0.01),
+                  Stack(
+                    children: [
+                      Container(
+                        height: screenHeight * 0.015,
+                        decoration: BoxDecoration(
+                          color: AppColors.borderColor,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                      Container(
+                        height: screenHeight * 0.015,
+                        width: progress * MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              AppColors.brandColorsOne,
+                              AppColors.brandColorTwo,
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ),
-            Icon(Icons.arrow_forward_ios, color: Colors.purple),
+            Container(
+              width: screenWidth * 0.08,
+              height: screenHeight * 0.08,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(
+                  colors: <Color>[AppColors.purple_1, AppColors.purple_2],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                border: Border.all(width: 1.0, color: Colors.transparent)
+              ),
+              child: Container(
+                 width: screenWidth * 0.04,
+              height: screenHeight * 0.04,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.whiteColor,
+                ),
+                child: Center(
+                  child: Icon(Icons.arrow_forward_ios, color: Colors.purple)
+                ),
+              ),
+            ),
+            
           ],
         ),
       ),

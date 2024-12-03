@@ -11,10 +11,7 @@ import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/mass_
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/workout_list.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/dashboard/widgets/workout_widget.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fitnesx_flutter/feature/utils/widgets/custom_navigationbar.dart';
 import 'package:fitnesx_flutter/fitnestx_icons.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -30,7 +27,6 @@ class _DashboardScreenState extends State<DashboardScreen>
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-     //bottomNavigationBar: CustomNavigationbar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
