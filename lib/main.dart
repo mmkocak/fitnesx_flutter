@@ -1,5 +1,5 @@
 import 'package:fitnesx_flutter/feature/screen/dashboard/activity/activity_screen.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/notification/noification_screen.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/notification/notification_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/firebase_options.dart';
 

@@ -1,5 +1,5 @@
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/notification/cards/notofiaction_card.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/notification/cards/notifiaction_card.dart';
 
 class NotificationList extends StatelessWidget {
   final List<Map<String, dynamic>> notifications = [
@@ -47,7 +47,7 @@ class NotificationList extends StatelessWidget {
         final workout = notifications[index];
         return Padding(
           padding: const EdgeInsets.only(bottom: 16.0),
-          child: NotofiactionCard(
+          child: NotifiactionCard(
             title: workout["title"],
             time: workout["time"],
             image: workout["image"],

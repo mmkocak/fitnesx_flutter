@@ -1,16 +1,15 @@
-import 'package:fitnesx_flutter/feature/screen/dashboard/notification/cards/notofiaction_card.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/notification/notification_list.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/feature/utils/widgets/custom_appbar_widget.dart';
 
-class NoificationScreen extends StatefulWidget {
-  const NoificationScreen({Key? key}) : super(key: key);
+class NotificationScreen extends StatefulWidget {
+  const NotificationScreen({Key? key}) : super(key: key);
 
   @override
-  _NoificationScreenState createState() => _NoificationScreenState();
+  _NotificationScreenState createState() => _NotificationScreenState();
 }
 
-class _NoificationScreenState extends State<NoificationScreen> {
+class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

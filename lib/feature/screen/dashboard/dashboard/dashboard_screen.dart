@@ -1,4 +1,4 @@
-import 'package:fitnesx_flutter/feature/screen/dashboard/notification/noification_screen.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/notification/notification_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -72,7 +72,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                               child: IconButton(
                                 icon: Icon(Fitnestx.notification),
                                 onPressed: () {
-                                  Navigator.push(context, PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation)=> const NoificationScreen(), 
+                                  Navigator.push(context, PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation)=> const NotificationScreen(), 
                                   transitionDuration: Duration.zero,
                                   reverseTransitionDuration: Duration.zero
                                   ));

@@ -1,13 +1,13 @@
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
-class NotofiactionCard extends StatelessWidget {
+class NotifiactionCard extends StatelessWidget {
   final String title;
 
   final String time;
 
   final String image;
 
-  NotofiactionCard({
+  NotifiactionCard({
     Key? key,
     required this.title,
     required this.time,
