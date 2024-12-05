@@ -1,3 +1,4 @@
+import 'package:fitnesx_flutter/feature/screen/dashboard/activity/activity_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class RouterScreen extends StatefulWidget {
@@ -10,7 +11,7 @@ class _RouterScreenState extends State<RouterScreen> {
 
   final List<Widget> _pages = [
     DashboardScreen(),
-    Container(),
+    ActivityScreen(),
     Container(),
     Container(),
   ];

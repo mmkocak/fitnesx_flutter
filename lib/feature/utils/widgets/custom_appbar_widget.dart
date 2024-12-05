@@ -56,7 +56,7 @@ class CustomAppbarWidget extends StatelessWidget
                       ),
                       child: Center(
                         child: Icon(
-                          Icons.more_vert,
+                          Icons.more_horiz,
                           size: screenWidth * 0.06,
                         ),
                       ),
