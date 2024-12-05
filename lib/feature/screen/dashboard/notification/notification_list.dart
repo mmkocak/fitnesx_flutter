@@ -38,8 +38,10 @@ class NotificationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     return ListView.builder(
-      padding: const EdgeInsets.all(16.0),
+      padding:  EdgeInsets.symmetric(vertical: screenHeight * 0.01,horizontal: screenWidth * 0.04),
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
       itemCount: notifications.length,

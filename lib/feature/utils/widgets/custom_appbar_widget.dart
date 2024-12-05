@@ -1,3 +1,4 @@
+import 'package:fitnesx_flutter/core/cubit/go_back_cubit.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class CustomAppbarWidget extends StatelessWidget
@@ -30,9 +31,12 @@ class CustomAppbarWidget extends StatelessWidget
                         color: AppColors.borderColor,
                       ),
                       child: Center(
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          size: screenWidth * 0.06,
+                        child: IconButton(
+                          icon: Icon(Icons.arrow_back_ios,),
+                          iconSize:  screenWidth * 0.06,
+                         onPressed: () {
+                           context.read<NavigationCubit>().goBack(context);
+                         },
                         ),
                       ),
                     ),

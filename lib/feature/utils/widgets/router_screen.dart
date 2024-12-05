@@ -1,3 +1,4 @@
+import 'package:fitnesx_flutter/core/cubit/go_back_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/activity/activity_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
@@ -7,7 +8,6 @@ class RouterScreen extends StatefulWidget {
 }
 
 class _RouterScreenState extends State<RouterScreen> {
-  int _currentIndex = 0;
 
   final List<Widget> _pages = [
     DashboardScreen(),
@@ -21,7 +21,11 @@ class _RouterScreenState extends State<RouterScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: _pages[_currentIndex],
+      body: BlocBuilder<NavigationCubit, int>(
+        builder: (context, currentIndex) {
+          return _pages[currentIndex];
+        },
+      ),
       bottomNavigationBar: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -29,11 +33,9 @@ class _RouterScreenState extends State<RouterScreen> {
           BottomNavigationBar(
             showSelectedLabels: false,
             showUnselectedLabels: false,
-            currentIndex: _currentIndex,
+            currentIndex: context.watch<NavigationCubit>().state,
             onTap: (index) {
-              setState(() {
-                _currentIndex = index;
-              });
+              context.read<NavigationCubit>().changeIndex(index);
             },
             type: BottomNavigationBarType.fixed,
             selectedItemColor: Colors.purple,
@@ -102,7 +104,7 @@ class _RouterScreenState extends State<RouterScreen> {
   }
 
   Widget _buildGradientIcon(IconData icon, int index) {
-    bool isSelected = _currentIndex == index;
+    bool isSelected = context.watch<NavigationCubit>().state  == index;
 
     return ShaderMask(
       blendMode: BlendMode.srcIn,
