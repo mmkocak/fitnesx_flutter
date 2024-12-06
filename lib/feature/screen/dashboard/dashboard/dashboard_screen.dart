@@ -149,7 +149,7 @@ class _DashboardScreenState extends State<DashboardScreen>
                 height: screenHeight * 0.03,
               ),
               //Water Intake, Sleep, Calories Container Start
-              Container(
+              SizedBox(
                 width: screenWidth * 0.9,
                 child: Column(
                   children: [
