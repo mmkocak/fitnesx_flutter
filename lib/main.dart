@@ -12,6 +12,10 @@ void main(List<String> args) async {
       DeviceOrientation.portraitUp,
     ],
   );
+   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent, 
+    statusBarIconBrightness: Brightness.dark, 
+  ));
   runApp(
     const fitnesX(),
   );

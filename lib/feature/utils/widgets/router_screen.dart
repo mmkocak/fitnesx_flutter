@@ -1,5 +1,6 @@
 import 'package:fitnesx_flutter/core/cubit/go_back_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/activity/activity_screen.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/profile/profile_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 
 class RouterScreen extends StatefulWidget {
@@ -13,7 +14,7 @@ class _RouterScreenState extends State<RouterScreen> {
     DashboardScreen(),
     ActivityScreen(),
     Container(),
-    Container(),
+    ProfileScreen(),
   ];
 
   @override
