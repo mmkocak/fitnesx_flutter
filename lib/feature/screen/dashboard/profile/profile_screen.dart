@@ -1,3 +1,5 @@
+import 'package:fitnesx_flutter/feature/screen/dashboard/profile/cards/account_cards.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/profile/widgets/custom_profile_container_widget.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/feature/utils/widgets/custom_appbar_widget.dart';
 
@@ -74,7 +76,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   fontSize: screenWidth * 0.04,
                                   fontWeight: FontWeight.w800),
                             ),
-                            SizedBox(height: screenHeight * 0.01,),
+                            SizedBox(
+                              height: screenHeight * 0.01,
+                            ),
                             Text(
                               "Lose a Fat Program",
                               style: TextStyle(
@@ -88,31 +92,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           width: screenWidth * 0.03,
                         ),
                         Container(
-                            width: screenHeight * 0.09,
-                            height: screenHeight * 0.04,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              gradient: LinearGradient(
-                                colors: <Color>[
-                                  AppColors.brandColorTwo,
-                                  AppColors.brandColorsOne
-                                ],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Edit",
-                                style: TextStyle(
-                                    color: AppColors.whiteColor,
-                                    fontFamily: "Poppins",
-                                    fontSize: screenWidth * 0.03,
-                                    fontWeight: FontWeight.w600),
-                              ),
+                          width: screenHeight * 0.09,
+                          height: screenHeight * 0.04,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            gradient: LinearGradient(
+                              colors: <Color>[
+                                AppColors.brandColorTwo,
+                                AppColors.brandColorsOne
+                              ],
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
                             ),
                           ),
-                        
+                          child: Center(
+                            child: Text(
+                              "Edit",
+                              style: TextStyle(
+                                  color: AppColors.whiteColor,
+                                  fontFamily: "Poppins",
+                                  fontSize: screenWidth * 0.03,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   );
@@ -121,6 +124,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 }
               },
             ),
+            SizedBox(
+              height: screenHeight * 0.03,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.06),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomProfileContainerWidget(text: "180 cm", property: "Height",),
+                  SizedBox(
+                    width: screenWidth * 0.03,
+                  ),
+                  CustomProfileContainerWidget(text: "65 kg", property: "Weight",),
+                   SizedBox(
+                    width: screenWidth * 0.03,
+                  ),
+                  CustomProfileContainerWidget(text: "22 yo", property: "Age",),
+                ],
+              ),
+            ),
+            SizedBox(height: screenHeight * 0.03,),
+            AccountCards(),
+            SizedBox(height: screenHeight * 0.03,),
+            
           ],
         ),
       ),

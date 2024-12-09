@@ -57,5 +57,8 @@ flutter:
     - family: BottomNavigation
       fonts:
         - asset: assets/fonts/BottomNavigation.ttf
+    - family: ProfileScreenIcon
+      fonts:
+        - asset: assets/fonts/ProfileScreenIcon.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
