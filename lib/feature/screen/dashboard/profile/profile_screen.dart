@@ -123,7 +123,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     );
                   } else {
-                    return const Center(child: Text('Please login to continue.'));
+                    return const Center(
+                        child: Text('Please login to continue.'));
                   }
                 },
               ),
