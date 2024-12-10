@@ -1,6 +1,7 @@
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/profile_screen_icon_icons.dart';
 
+/// Account cart in [ProfileScreen]
 class AccountCards extends StatelessWidget {
   const AccountCards({Key? key}) : super(key: key);
 
@@ -59,7 +60,7 @@ class AccountCards extends StatelessWidget {
               ),
             ],
           ),
-          
+
         ),
       ),
     );

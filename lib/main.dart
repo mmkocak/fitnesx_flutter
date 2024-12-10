@@ -1,4 +1,5 @@
 import 'package:fitnesx_flutter/core/cubit/go_back_cubit.dart';
+import 'package:fitnesx_flutter/core/cubit/notification_switch_cubit.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/activity/activity_screen.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/notification/notification_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
@@ -51,6 +52,9 @@ class fitnesX extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => NavigationCubit(),
+        ),
+        BlocProvider(
+          create: (context) => NotificationSwitchCubit(),
         )
       ],
       child: MaterialApp(

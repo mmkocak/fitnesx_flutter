@@ -1,4 +1,5 @@
 import 'package:fitnesx_flutter/feature/screen/dashboard/profile/cards/account_cards.dart';
+import 'package:fitnesx_flutter/feature/screen/dashboard/profile/cards/profile_notification_card.dart';
 import 'package:fitnesx_flutter/feature/screen/dashboard/profile/widgets/custom_profile_container_widget.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/feature/utils/widgets/custom_appbar_widget.dart';
@@ -147,7 +148,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             SizedBox(height: screenHeight * 0.03,),
             AccountCards(),
             SizedBox(height: screenHeight * 0.03,),
-            
+            ProfileNotificationCard(
+              
+            ),
           ],
         ),
       ),
