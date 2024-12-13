@@ -1,7 +1,5 @@
 import 'package:fitnesx_flutter/core/cubit/go_back_cubit.dart';
 import 'package:fitnesx_flutter/core/cubit/notification_switch_cubit.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/activity/activity_screen.dart';
-import 'package:fitnesx_flutter/feature/screen/dashboard/notification/notification_screen.dart';
 import 'package:fitnesx_flutter/feature/utils/common/common_imports.dart';
 import 'package:fitnesx_flutter/firebase_options.dart';
 
@@ -60,7 +58,7 @@ class fitnesX extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,
-        home: LoginScreen(),
+        home: SplashScreen(),
       ),
     );
   }
